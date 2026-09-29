@@ -41,9 +41,12 @@ class AdminPanelProvider extends PanelProvider
                 AccountWidget::class,
             ])
             ->navigationGroups([
-                'Website',
+                'Homepage',
+                'About Page',
+                'Contact Page',
                 'Services',
                 'Leads',
+                'Website',
                 'Settings',
             ])
             ->middleware([
