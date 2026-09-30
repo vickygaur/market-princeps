@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Services\Schemas;
 
+use App\Support\MaterialIcons;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
@@ -34,7 +35,7 @@ class ServiceForm
                         ->helperText('Public URL: /services/{slug}'),
                     TextInput::make('short_description')->maxLength(255),
                     Textarea::make('description')->rows(4),
-                    TextInput::make('icon')->helperText('Material symbol name, e.g. travel_explore'),
+                    MaterialIcons::select('icon'),
                     TextInput::make('url')
                         ->label('Custom URL override')
                         ->helperText('Leave blank to use /services/{slug}. Only set if linking elsewhere.'),
@@ -51,7 +52,9 @@ class ServiceForm
                         TextInput::make('page_content.hero.title_highlight')->label('Highlighted word'),
                         TextInput::make('page_content.hero.title_after')->label('Title after highlight'),
                         Textarea::make('page_content.hero.body')->label('Body')->rows(4)->columnSpanFull(),
-                        TextInput::make('page_content.hero.primary_cta')->label('Primary CTA label'),
+                        TextInput::make('page_content.hero.primary_cta')
+                            ->label('Primary CTA label')
+                            ->helperText('Shown on hero and other CTA buttons across this service page'),
                         TextInput::make('page_content.hero.secondary_cta')->label('Secondary CTA label'),
                         TextInput::make('page_content.hero.trust_line')->label('Trust line')->columnSpanFull(),
                         TextInput::make('page_content.hero.radar.title')->label('Radar title'),
@@ -61,7 +64,7 @@ class ServiceForm
                             ->schema([
                                 TextInput::make('label')->required(),
                                 TextInput::make('hint'),
-                                TextInput::make('icon')->helperText('Material symbol'),
+                                MaterialIcons::select('icon'),
                             ])
                             ->defaultItems(0)
                             ->collapsible()
@@ -108,12 +111,12 @@ class ServiceForm
                                 TextInput::make('number')->label('Number')->maxLength(4),
                                 TextInput::make('chip')->label('Chip'),
                                 TextInput::make('tag')->label('Tag'),
-                                TextInput::make('icon')->label('Icon'),
+                                MaterialIcons::select('icon'),
                                 TextInput::make('tab_title')->label('Tab title'),
                                 TextInput::make('title')->label('Title')->columnSpanFull(),
                                 Textarea::make('body')->label('Body')->rows(3)->columnSpanFull(),
                                 TextInput::make('target')->label('Target line')->columnSpanFull(),
-                                TextInput::make('target_icon')->label('Target icon'),
+                                MaterialIcons::select('target_icon', 'Target icon'),
                                 TextInput::make('explore_label')->label('Explore CTA'),
                                 Repeater::make('features')
                                     ->label('Features')
@@ -196,11 +199,6 @@ class ServiceForm
                             ->collapsible()
                             ->columnSpanFull(),
                     ])->columns(2),
-                    Section::make('Global CTA label')->schema([
-                        TextInput::make('page_content.cta.primary_label')
-                            ->label('Primary CTA label used across the page')
-                            ->helperText('Falls back to hero primary CTA when empty'),
-                    ]),
                 ]),
 
                 Tab::make('SEO')->schema([

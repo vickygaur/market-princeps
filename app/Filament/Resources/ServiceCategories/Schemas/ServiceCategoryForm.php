@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ServiceCategories\Schemas;
 
+use App\Support\MaterialIcons;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -23,7 +24,7 @@ class ServiceCategoryForm
                     TextInput::make('slug')->required()->unique(ignoreRecord: true),
                     TextInput::make('badge_label'),
                     TextInput::make('badge_color')->helperText('e.g. secondary, primary, tertiary'),
-                    TextInput::make('icon')->helperText('Material symbol name'),
+                    MaterialIcons::select('icon'),
                     Textarea::make('description')->rows(3),
                     TextInput::make('sort_order')->numeric()->default(0),
                     Toggle::make('is_active')->default(true),

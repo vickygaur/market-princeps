@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Filament\Concerns\ManagesCmsPage;
+use App\Support\MaterialIcons;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
@@ -80,7 +81,7 @@ class ManageContactContent extends Page
                             TextInput::make('hero.title_shimmer')->label('Highlighted title')->columnSpanFull(),
                             Textarea::make('hero.body')->label('Body')->rows(3)->columnSpanFull(),
                             Repeater::make('hero.trust_markers')->label('Trust markers')->schema([
-                                TextInput::make('icon'),
+                                MaterialIcons::select('icon'),
                                 TextInput::make('label')->required(),
                             ])->columns(2)->defaultItems(0)->reorderable()->columnSpanFull(),
                         ]),
@@ -114,7 +115,7 @@ class ManageContactContent extends Page
                                 TextInput::make('value')->required(),
                             ])->columns(2)->defaultItems(0)->reorderable()->columnSpanFull(),
                             Repeater::make('hub.form.trust_badges')->label('Trust badges')->schema([
-                                TextInput::make('icon'),
+                                MaterialIcons::select('icon'),
                                 TextInput::make('label')->required(),
                             ])->columns(2)->defaultItems(0)->columnSpanFull(),
                         ]),

@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Filament\Concerns\ManagesCmsPage;
+use App\Support\MaterialIcons;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
@@ -132,7 +133,7 @@ class ManageAboutContent extends Page
                                 Textarea::make('text')->required()->rows(3)->label('Paragraph'),
                             ])->defaultItems(0)->reorderable()->columnSpanFull(),
                             Repeater::make('hero.stats')->label('Stats')->schema([
-                                TextInput::make('icon'),
+                                MaterialIcons::select('icon'),
                                 TextInput::make('value')->label('Value'),
                                 TextInput::make('title')->required(),
                                 Textarea::make('description')->rows(2)->columnSpanFull(),
@@ -168,7 +169,7 @@ class ManageAboutContent extends Page
                             Textarea::make('triad.subtitle')->label('Subtitle')->rows(2)->columnSpanFull(),
                             TextInput::make('triad.footer_note')->label('Footer note')->columnSpanFull(),
                             Repeater::make('triad.pillars')->label('Pillars')->schema([
-                                TextInput::make('icon'),
+                                MaterialIcons::select('icon'),
                                 TextInput::make('badge'),
                                 TextInput::make('title')->required()->columnSpanFull(),
                                 Textarea::make('description')->rows(3)->columnSpanFull(),
@@ -190,7 +191,7 @@ class ManageAboutContent extends Page
                                 TextInput::make('title')->required()->columnSpanFull(),
                                 Textarea::make('description')->rows(3)->columnSpanFull(),
                                 TextInput::make('footer_label')->label('Footer label'),
-                                TextInput::make('footer_icon')->label('Footer icon'),
+                                MaterialIcons::select('footer_icon', 'Footer icon'),
                             ])->columns(2)->defaultItems(0)->collapsible()->reorderable()->columnSpanFull(),
                         ]),
                     ]),

@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Filament\Concerns\ManagesCmsPage;
+use App\Support\MaterialIcons;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
@@ -202,7 +203,7 @@ class ManageHomeContent extends Page
                     Tab::make('Metrics')->schema([
                         Section::make('Metric cards')->schema([
                             Repeater::make('metrics.cards')->label('Cards')->schema([
-                                TextInput::make('icon')->helperText('Material icon name'),
+                                MaterialIcons::select('icon'),
                                 TextInput::make('stat')->label('Stat'),
                                 TextInput::make('title')->required(),
                                 Textarea::make('body')->label('Body')->rows(2)->columnSpanFull(),
@@ -274,11 +275,11 @@ class ManageHomeContent extends Page
                             TextInput::make('process.cta_note')->label('CTA note'),
                             Repeater::make('process.steps')->label('Steps')->schema([
                                 TextInput::make('number')->label('Number')->maxLength(4),
-                                TextInput::make('icon')->label('Icon'),
+                                MaterialIcons::select('icon'),
                                 TextInput::make('title')->required()->columnSpanFull(),
                                 Textarea::make('body')->label('Body')->rows(3)->columnSpanFull(),
                                 TextInput::make('footer_label')->label('Footer label'),
-                                TextInput::make('footer_icon')->label('Footer icon'),
+                                MaterialIcons::select('footer_icon', 'Footer icon'),
                             ])->columns(2)->defaultItems(0)->collapsible()->reorderable()->columnSpanFull(),
                         ]),
                     ]),
@@ -292,7 +293,7 @@ class ManageHomeContent extends Page
                             TextInput::make('intake.submit_label')->label('Submit label'),
                             TextInput::make('intake.success_message')->label('Success message')->columnSpanFull(),
                             Repeater::make('intake.highlights')->label('Highlights')->schema([
-                                TextInput::make('icon'),
+                                MaterialIcons::select('icon'),
                                 TextInput::make('title')->required(),
                                 Textarea::make('body')->rows(2)->columnSpanFull(),
                             ])->columns(2)->defaultItems(0)->collapsible()->columnSpanFull(),
