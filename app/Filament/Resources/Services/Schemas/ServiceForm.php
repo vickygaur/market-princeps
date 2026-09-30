@@ -52,10 +52,16 @@ class ServiceForm
                         TextInput::make('page_content.hero.title_highlight')->label('Highlighted word'),
                         TextInput::make('page_content.hero.title_after')->label('Title after highlight'),
                         Textarea::make('page_content.hero.body')->label('Body')->rows(4)->columnSpanFull(),
-                        TextInput::make('page_content.hero.primary_cta')
-                            ->label('Primary CTA label')
-                            ->helperText('Shown on hero and other CTA buttons across this service page'),
+                        TextInput::make('page_content.hero.primary_cta')->label('Primary CTA label'),
+                        TextInput::make('page_content.hero.primary_cta_url')
+                            ->label('Primary CTA link')
+                            ->helperText('Default: #intakeTerminal')
+                            ->placeholder('#intakeTerminal'),
                         TextInput::make('page_content.hero.secondary_cta')->label('Secondary CTA label'),
+                        TextInput::make('page_content.hero.secondary_cta_url')
+                            ->label('Secondary CTA link')
+                            ->helperText('Default: #four-pillars')
+                            ->placeholder('#four-pillars'),
                         TextInput::make('page_content.hero.trust_line')->label('Trust line')->columnSpanFull(),
                         TextInput::make('page_content.hero.radar.title')->label('Radar title'),
                         TextInput::make('page_content.hero.radar.footer')->label('Radar footer'),
@@ -92,11 +98,19 @@ class ServiceForm
                         TagsInput::make('page_content.difference.positive.points')->label('Points')->columnSpanFull(),
                         TextInput::make('page_content.difference.positive.footer')->label('Footer')->columnSpanFull(),
                     ])->columns(2)->collapsed(),
-                    Section::make('Inline CTA')->schema([
-                        TextInput::make('page_content.difference.cta.badge')->label('Badge'),
-                        TextInput::make('page_content.difference.cta.heading')->label('Heading')->columnSpanFull(),
-                        Textarea::make('page_content.difference.cta.body')->label('Body')->rows(3)->columnSpanFull(),
-                    ])->collapsed(),
+                    Section::make('Inline CTA banner')
+                        ->description('The “Ready to take the next step?” bar under the difference cards')
+                        ->schema([
+                            TextInput::make('page_content.difference.cta.badge')->label('Badge'),
+                            TextInput::make('page_content.difference.cta.heading')->label('Heading')->columnSpanFull(),
+                            Textarea::make('page_content.difference.cta.body')->label('Body')->rows(3)->columnSpanFull(),
+                            TextInput::make('page_content.difference.cta.button_label')
+                                ->label('Button label')
+                                ->helperText('Leave blank to use Hero primary CTA'),
+                            TextInput::make('page_content.difference.cta.button_url')
+                                ->label('Button link')
+                                ->placeholder('#intakeTerminal'),
+                        ])->columns(2),
                 ]),
 
                 Tab::make('Pillars')->schema([
@@ -104,6 +118,12 @@ class ServiceForm
                         TextInput::make('page_content.pillars.badge')->label('Badge'),
                         TextInput::make('page_content.pillars.heading')->label('Heading')->columnSpanFull(),
                         Textarea::make('page_content.pillars.intro')->label('Intro')->rows(3)->columnSpanFull(),
+                        TextInput::make('page_content.pillars.cta_label')
+                            ->label('Bottom CTA button label')
+                            ->helperText('Used when no pillar items are set; leave blank to use Hero primary CTA'),
+                        TextInput::make('page_content.pillars.cta_url')
+                            ->label('Bottom CTA link')
+                            ->placeholder('#intakeTerminal'),
                         Repeater::make('page_content.pillars.items')
                             ->label('Pillars')
                             ->schema([
@@ -117,7 +137,10 @@ class ServiceForm
                                 Textarea::make('body')->label('Body')->rows(3)->columnSpanFull(),
                                 TextInput::make('target')->label('Target line')->columnSpanFull(),
                                 MaterialIcons::select('target_icon', 'Target icon'),
-                                TextInput::make('explore_label')->label('Explore CTA'),
+                                TextInput::make('explore_label')->label('Explore CTA label'),
+                                TextInput::make('explore_url')
+                                    ->label('Explore CTA link')
+                                    ->placeholder('#intakeTerminal'),
                                 Repeater::make('features')
                                     ->label('Features')
                                     ->schema([
@@ -132,7 +155,7 @@ class ServiceForm
                             ->collapsible()
                             ->itemLabel(fn (array $state): ?string => $state['tab_title'] ?? $state['title'] ?? null)
                             ->columnSpanFull(),
-                    ]),
+                    ])->columns(2),
                 ]),
 
                 Tab::make('Roadmap')->schema([
@@ -155,6 +178,12 @@ class ServiceForm
                             ->columnSpanFull(),
                         TextInput::make('page_content.roadmap.cta.heading')->label('CTA heading')->columnSpanFull(),
                         Textarea::make('page_content.roadmap.cta.body')->label('CTA body')->rows(2)->columnSpanFull(),
+                        TextInput::make('page_content.roadmap.cta.button_label')
+                            ->label('CTA button label')
+                            ->helperText('Leave blank to use Hero primary CTA'),
+                        TextInput::make('page_content.roadmap.cta.button_url')
+                            ->label('CTA button link')
+                            ->placeholder('#intakeTerminal'),
                     ]),
                 ]),
 
@@ -175,6 +204,12 @@ class ServiceForm
                             ->columnSpanFull(),
                         TextInput::make('page_content.faq.side_cta.title')->label('Side CTA title')->columnSpanFull(),
                         Textarea::make('page_content.faq.side_cta.body')->label('Side CTA body')->rows(2)->columnSpanFull(),
+                        TextInput::make('page_content.faq.side_cta.button_label')
+                            ->label('Side CTA button label')
+                            ->helperText('Leave blank to use Hero primary CTA'),
+                        TextInput::make('page_content.faq.side_cta.button_url')
+                            ->label('Side CTA button link')
+                            ->placeholder('#intakeTerminal'),
                     ]),
                 ]),
 

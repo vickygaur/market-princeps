@@ -4,6 +4,12 @@
     $intro = data_get($content, 'pillars.intro', 'Technical foundations, search intent, useful content, and trust work best when they are connected—not treated as separate projects.');
     $items = data_get($content, 'pillars.items', []);
     $hasPillars = count($items) > 0;
+    $pillarsCtaLabel = filled(data_get($content, 'pillars.cta_label'))
+        ? data_get($content, 'pillars.cta_label')
+        : $primaryCta;
+    $pillarsCtaUrl = filled(data_get($content, 'pillars.cta_url'))
+        ? data_get($content, 'pillars.cta_url')
+        : '#intakeTerminal';
 @endphp
 <section class="w-full px-6 md:px-margin py-16 md:py-24" id="four-pillars">
     <div class="max-w-7xl mx-auto flex flex-col gap-10 md:gap-14">
@@ -80,7 +86,7 @@
                                     <span>{{ $pillar['target'] }}</span>
                                 </div>
                             @endif
-                            <a class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-secondary hover:text-primary transition-colors group" href="#intakeTerminal">
+                            <a class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-secondary hover:text-primary transition-colors group" href="{{ filled($pillar['explore_url'] ?? null) ? $pillar['explore_url'] : '#intakeTerminal' }}">
                                 <span>{{ $pillar['explore_label'] ?? 'EXPLORE THIS PILLAR' }}</span>
                                 <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform text-secondary-container">arrow_forward</span>
                             </a>
@@ -90,9 +96,9 @@
             </div>
         @else
             <div class="rounded-2xl bg-surface-container-lowest p-8 md:p-12 shadow-sm border border-outline-variant/30 text-center">
-                <p class="font-body-md text-slate-600 max-w-xl mx-auto">Our methodology connects technical health, search intent, content, and conversion. {{ $primaryCta ? 'Start a conversation to see how it applies to '.$service->name.'.' : '' }}</p>
-                <a class="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-primary-container text-on-primary font-title-md text-sm font-semibold hover:bg-primary shadow-md transition-all group" href="#intakeTerminal">
-                    <span>{{ $primaryCta }}</span>
+                <p class="font-body-md text-slate-600 max-w-xl mx-auto">Our methodology connects technical health, search intent, content, and conversion. {{ $pillarsCtaLabel ? 'Start a conversation to see how it applies to '.$service->name.'.' : '' }}</p>
+                <a class="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-primary-container text-on-primary font-title-md text-sm font-semibold hover:bg-primary shadow-md transition-all group" href="{{ $pillarsCtaUrl }}">
+                    <span>{{ $pillarsCtaLabel }}</span>
                     <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform text-secondary-container">arrow_forward</span>
                 </a>
             </div>

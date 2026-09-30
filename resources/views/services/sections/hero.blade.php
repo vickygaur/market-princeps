@@ -13,6 +13,12 @@
         ['icon' => 'hub', 'label' => 'Commercial', 'hint' => 'Comparing / evaluating'],
         ['icon' => 'trending_down', 'label' => 'Transactional', 'hint' => 'Ready to act'],
     ]);
+    $primaryCtaUrl = filled(data_get($content, 'hero.primary_cta_url'))
+        ? data_get($content, 'hero.primary_cta_url')
+        : '#intakeTerminal';
+    $secondaryCtaUrl = filled(data_get($content, 'hero.secondary_cta_url'))
+        ? data_get($content, 'hero.secondary_cta_url')
+        : '#four-pillars';
 @endphp
 <section class="w-full px-6 md:px-margin py-16 md:py-24 relative overflow-hidden bg-background">
     <div class="absolute -top-32 right-10 w-96 h-96 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none -z-10"></div>
@@ -29,11 +35,11 @@
                 </h1>
                 <p class="font-body-md text-slate-600 text-base md:text-lg max-w-xl leading-relaxed">{{ $body }}</p>
                 <div class="flex flex-wrap items-center gap-4 pt-2">
-                    <a class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-primary-container text-on-primary font-title-md text-sm font-semibold tracking-wider uppercase hover:bg-primary shadow-sm hover:shadow transition-all duration-200 group" href="#intakeTerminal">
+                    <a class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-primary-container text-on-primary font-title-md text-sm font-semibold tracking-wider uppercase hover:bg-primary shadow-sm hover:shadow transition-all duration-200 group" href="{{ $primaryCtaUrl }}">
                         <span>{{ $primaryCta }}</span>
                         <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform text-secondary-container">arrow_forward</span>
                     </a>
-                    <a class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-title-md text-sm font-semibold tracking-wider uppercase hover:bg-surface-container transition-all duration-200 shadow-sm border border-outline-variant/30" href="#four-pillars">
+                    <a class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-title-md text-sm font-semibold tracking-wider uppercase hover:bg-surface-container transition-all duration-200 shadow-sm border border-outline-variant/30" href="{{ $secondaryCtaUrl }}">
                         <span>{{ $secondaryCta }}</span>
                         <span class="material-symbols-outlined text-[18px] text-secondary">south</span>
                     </a>

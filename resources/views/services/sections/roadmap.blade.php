@@ -10,6 +10,12 @@
     ]);
     $ctaHeading = data_get($content, 'roadmap.cta.heading', 'READY TO IMPROVE YOUR SEARCH VISIBILITY?');
     $ctaBody = data_get($content, 'roadmap.cta.body', 'We\'ll begin by understanding where things stand today, then identify what deserves attention first.');
+    $ctaButtonLabel = filled(data_get($content, 'roadmap.cta.button_label'))
+        ? data_get($content, 'roadmap.cta.button_label')
+        : $primaryCta;
+    $ctaButtonUrl = filled(data_get($content, 'roadmap.cta.button_url'))
+        ? data_get($content, 'roadmap.cta.button_url')
+        : '#intakeTerminal';
 @endphp
 <section class="w-full px-6 md:px-margin py-16 md:py-24">
     <div class="max-w-7xl mx-auto flex flex-col gap-10 md:gap-14">
@@ -42,8 +48,8 @@
                 <p class="font-body-sm text-sm text-slate-600 max-w-2xl leading-relaxed">{{ $ctaBody }}</p>
             </div>
             <div class="shrink-0 w-full md:w-auto">
-                <a class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-primary-container text-on-primary font-title-md text-sm font-semibold hover:bg-primary shadow-md hover:shadow-lg transition-all group" href="#intakeTerminal">
-                    <span>{{ $primaryCta }}</span>
+                <a class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-primary-container text-on-primary font-title-md text-sm font-semibold hover:bg-primary shadow-md hover:shadow-lg transition-all group" href="{{ $ctaButtonUrl }}">
+                    <span>{{ $ctaButtonLabel }}</span>
                     <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform text-secondary-container">arrow_forward</span>
                 </a>
             </div>
