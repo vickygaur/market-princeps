@@ -7,9 +7,10 @@
     $metaKeywords = $page->meta_keywords ?? SiteSetting::getValue('meta_keywords');
     $ogTitle = $page->og_title ?? $metaTitle;
     $ogDescription = $page->og_description ?? $metaDescription;
-    $ogImage = $page->og_image ?? SiteSetting::getValue('og_image');
+    $ogImage = media_url($page->og_image ?? SiteSetting::getValue('default_og_image', SiteSetting::getValue('og_image')));
     $robots = $page->robots ?? SiteSetting::getValue('robots', 'index, follow');
     $canonical = $page->canonical_url ?? url()->current();
+    $favicon = media_url($settings['site_favicon'] ?? SiteSetting::getValue('site_favicon'));
 @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -17,6 +18,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $metaTitle }}</title>
+    @if ($favicon)
+        <link rel="icon" href="{{ $favicon }}">
+        <link rel="apple-touch-icon" href="{{ $favicon }}">
+    @endif
     @if ($metaDescription)
         <meta name="description" content="{{ $metaDescription }}">
     @endif
