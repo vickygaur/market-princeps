@@ -19,6 +19,12 @@
     $ctaBadge = data_get($content, 'difference.cta.badge', 'READY TO TAKE THE NEXT STEP?');
     $ctaHeading = data_get($content, 'difference.cta.heading', 'Let\'s build SEO around what matters to your business.');
     $ctaBody = data_get($content, 'difference.cta.body', 'Tell us what you\'re trying to grow, improve or fix. We\'ll look at your current search presence and help you understand where the biggest opportunities are.');
+    $ctaButtonLabel = filled(data_get($content, 'difference.cta.button_label'))
+        ? data_get($content, 'difference.cta.button_label')
+        : $primaryCta;
+    $ctaButtonUrl = filled(data_get($content, 'difference.cta.button_url'))
+        ? data_get($content, 'difference.cta.button_url')
+        : '#intakeTerminal';
 @endphp
 <section class="w-full px-6 md:px-margin py-16 md:py-24 bg-surface-container-low">
     <div class="max-w-7xl mx-auto flex flex-col gap-10 md:gap-14">
@@ -91,8 +97,8 @@
                 <p class="font-body-sm text-sm text-slate-600">{{ $ctaBody }}</p>
             </div>
             <div class="shrink-0 w-full md:w-auto">
-                <a class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-primary-container text-on-primary font-title-md text-sm font-semibold hover:bg-primary shadow-md hover:shadow-lg transition-all group" href="#intakeTerminal">
-                    <span>{{ $primaryCta }}</span>
+                <a class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-primary-container text-on-primary font-title-md text-sm font-semibold hover:bg-primary shadow-md hover:shadow-lg transition-all group" href="{{ $ctaButtonUrl }}">
+                    <span>{{ $ctaButtonLabel }}</span>
                     <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform text-secondary-container">arrow_forward</span>
                 </a>
             </div>

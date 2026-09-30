@@ -5,6 +5,12 @@
     $items = data_get($content, 'faq.items', []);
     $sideTitle = data_get($content, 'faq.side_cta.title', 'Have a complex website or a specific challenge?');
     $sideBody = data_get($content, 'faq.side_cta.body', 'Tell us what you\'re dealing with. We\'ll start by understanding the situation before recommending what needs to change.');
+    $sideButtonLabel = filled(data_get($content, 'faq.side_cta.button_label'))
+        ? data_get($content, 'faq.side_cta.button_label')
+        : $primaryCta;
+    $sideButtonUrl = filled(data_get($content, 'faq.side_cta.button_url'))
+        ? data_get($content, 'faq.side_cta.button_url')
+        : '#intakeTerminal';
 @endphp
 <section class="w-full px-6 md:px-margin py-16 md:py-24 bg-surface-container-low">
     <div class="max-w-4xl mx-auto flex flex-col gap-10 md:gap-14">
@@ -45,8 +51,8 @@
                     <p class="font-body-sm text-sm text-slate-600 leading-snug mt-1">{{ $sideBody }}</p>
                 </div>
             </div>
-            <a class="shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-primary-container text-on-primary font-title-md text-xs font-semibold hover:bg-primary transition-all shadow-sm" href="#intakeTerminal">
-                <span>{{ $primaryCta }}</span>
+            <a class="shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-primary-container text-on-primary font-title-md text-xs font-semibold hover:bg-primary transition-all shadow-sm" href="{{ $sideButtonUrl }}">
+                <span>{{ $sideButtonLabel }}</span>
                 <span class="material-symbols-outlined text-[14px] text-secondary-container">arrow_forward</span>
             </a>
         </div>
