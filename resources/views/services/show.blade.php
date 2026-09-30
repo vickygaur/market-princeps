@@ -2,8 +2,14 @@
 
 @php
     $content = $content ?? ($service->page_content ?? []);
-    $primaryCta = data_get($content, 'cta.primary_label', data_get($content, 'hero.primary_cta', 'GET IN TOUCH'));
-    $secondaryCta = data_get($content, 'hero.secondary_cta', 'SEE HOW WE WORK');
+    $primaryCta = filled(data_get($content, 'hero.primary_cta'))
+        ? data_get($content, 'hero.primary_cta')
+        : (filled(data_get($content, 'cta.primary_label'))
+            ? data_get($content, 'cta.primary_label')
+            : 'GET IN TOUCH');
+    $secondaryCta = filled(data_get($content, 'hero.secondary_cta'))
+        ? data_get($content, 'hero.secondary_cta')
+        : 'SEE HOW WE WORK';
 @endphp
 
 @section('content')

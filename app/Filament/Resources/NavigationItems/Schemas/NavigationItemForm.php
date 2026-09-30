@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\NavigationItems\Schemas;
 
+use App\Support\MaterialIcons;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -28,7 +29,7 @@ class NavigationItemForm
                 'dropdown' => 'Dropdown',
                 'button' => 'Button',
             ])->default('link'),
-            TextInput::make('icon'),
+            MaterialIcons::select('icon'),
             TextInput::make('badge_color'),
             TextInput::make('sort_order')->numeric()->default(0),
             Toggle::make('is_active')->default(true),
