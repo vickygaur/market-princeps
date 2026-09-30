@@ -1,8 +1,10 @@
 @php
     use App\Models\SiteSetting;
 
-    $brandName = $settings['brand_name'] ?? SiteSetting::getValue('brand_name', 'Market Princeps');
-    $footerBlurb = $settings['footer_description'] ?? SiteSetting::getValue('footer_description', 'We help businesses attract the right customers, build the technology they need, and improve the way their business works.');
+    $brandName = $settings['site_name'] ?? $settings['brand_name'] ?? SiteSetting::getValue('site_name', SiteSetting::getValue('brand_name', 'Market Princeps'));
+    $siteLogo = media_url($settings['site_logo'] ?? SiteSetting::getValue('site_logo'));
+    $footerBlurb = $settings['site_description'] ?? $settings['footer_description'] ?? SiteSetting::getValue('site_description', SiteSetting::getValue('footer_description', 'We help businesses attract the right customers, build the technology they need, and improve the way their business works.'));
+    $footerBadge = $settings['footer_badge'] ?? SiteSetting::getValue('footer_badge', 'BUILT AROUND YOUR BUSINESS');
     $contactEmail = $settings['contact_email'] ?? SiteSetting::getValue('contact_email', 'connect@marketprinceps.com');
     $contactPhone = $settings['contact_phone'] ?? SiteSetting::getValue('contact_phone', '+91-9625330200');
     $footerCategories = ($serviceCategories ?? collect())->filter(fn ($cat) => $cat->show_in_footer);
@@ -12,15 +14,19 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl">
             <div class="flex flex-col gap-space-md">
                 <div class="flex items-center gap-space-sm">
-                    <div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
-                        <span class="material-symbols-outlined text-secondary-container text-[18px]">diamond</span>
-                    </div>
+                    @if ($siteLogo)
+                        <img src="{{ $siteLogo }}" alt="{{ $brandName }} logo" class="h-8 w-auto max-w-[140px] object-contain shrink-0">
+                    @else
+                        <div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
+                            <span class="material-symbols-outlined text-secondary-container text-[18px]">diamond</span>
+                        </div>
+                    @endif
                     <span class="font-title-md text-title-md uppercase tracking-wider text-on-primary-fixed">{{ $brandName }}</span>
                 </div>
                 <p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">{{ $footerBlurb }}</p>
                 <div class="inline-flex items-center gap-space-sm py-space-xs px-space-sm rounded-lg bg-surface-container w-fit">
                     <span class="w-2 h-2 rounded-full bg-secondary-container beacon-pulse"></span>
-                    <span class="font-label-caps text-label-caps text-on-surface uppercase font-semibold">BUILT AROUND YOUR BUSINESS</span>
+                    <span class="font-label-caps text-label-caps text-on-surface uppercase font-semibold">{{ $footerBadge }}</span>
                 </div>
             </div>
 

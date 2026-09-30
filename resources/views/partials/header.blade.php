@@ -1,8 +1,9 @@
 @php
     use App\Models\SiteSetting;
 
-    $brandName = $settings['brand_name'] ?? SiteSetting::getValue('brand_name', 'Market Princeps');
-    $brandTagline = $settings['brand_tagline'] ?? SiteSetting::getValue('brand_tagline', 'Growth Architecture');
+    $brandName = $settings['site_name'] ?? $settings['brand_name'] ?? SiteSetting::getValue('site_name', SiteSetting::getValue('brand_name', 'Market Princeps'));
+    $brandTagline = $settings['site_tagline'] ?? $settings['brand_tagline'] ?? SiteSetting::getValue('site_tagline', SiteSetting::getValue('brand_tagline', 'Growth Architecture'));
+    $siteLogo = media_url($settings['site_logo'] ?? SiteSetting::getValue('site_logo'));
 
     $navCategories = ($serviceCategories ?? collect())->filter(fn ($cat) => $cat->show_in_nav);
 
@@ -36,12 +37,20 @@
     <div class="h-20 w-full px-margin-mobile md:px-margin flex items-center justify-between relative">
         <div class="flex items-center gap-space-md group flex-1 min-w-0">
             <a class="flex items-center gap-space-md group" href="{{ route('home') }}">
-                <div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center shadow-[0_2px_8px_-2px_rgba(22,27,51,0.3)] transition-transform group-hover:scale-105">
-                    <span class="material-symbols-outlined text-secondary-container text-[22px]">diamond</span>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-title-md text-title-md tracking-wider text-on-primary-fixed uppercase">{{ $brandName }}</span>
-                    <span class="font-label-caps text-label-caps uppercase text-secondary font-semibold">{{ $brandTagline }}</span>
+                @if ($siteLogo)
+                    <img
+                        src="{{ $siteLogo }}"
+                        alt="{{ $brandName }} logo"
+                        class="h-10 w-auto max-w-[160px] object-contain transition-transform group-hover:scale-105 shrink-0"
+                    >
+                @else
+                    <div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center shadow-[0_2px_8px_-2px_rgba(22,27,51,0.3)] transition-transform group-hover:scale-105">
+                        <span class="material-symbols-outlined text-secondary-container text-[22px]">diamond</span>
+                    </div>
+                @endif
+                <div class="flex flex-col min-w-0">
+                    <span class="font-title-md text-title-md tracking-wider text-on-primary-fixed uppercase truncate">{{ $brandName }}</span>
+                    <span class="font-label-caps text-label-caps uppercase text-secondary font-semibold truncate">{{ $brandTagline }}</span>
                 </div>
             </a>
         </div>

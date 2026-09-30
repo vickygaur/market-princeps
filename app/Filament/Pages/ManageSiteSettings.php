@@ -44,6 +44,8 @@ class ManageSiteSettings extends Page
             'site_name' => SiteSetting::getValue('site_name', 'Market Princeps'),
             'site_tagline' => SiteSetting::getValue('site_tagline', SiteSetting::getValue('brand_tagline', 'Growth Architecture')),
             'site_description' => SiteSetting::getValue('site_description', 'We help businesses attract the right customers, build the technology they need, and improve the way their business works.'),
+            'site_logo' => SiteSetting::getValue('site_logo'),
+            'site_favicon' => SiteSetting::getValue('site_favicon'),
             'contact_email' => SiteSetting::getValue('contact_email', 'connect@marketprinceps.com'),
             'contact_phone' => SiteSetting::getValue('contact_phone', '+91-9625330200'),
             'contact_phone_href' => SiteSetting::getValue('contact_phone_href', '+919625330200'),
@@ -77,11 +79,27 @@ class ManageSiteSettings extends Page
             ->components([
                 Tabs::make('Settings')->tabs([
                     Tab::make('Brand')->schema([
-                        TextInput::make('site_name')->required(),
-                        TextInput::make('site_tagline'),
-                        Textarea::make('site_description')->rows(3),
-                        TextInput::make('footer_badge'),
-                        TextInput::make('copyright_text'),
+                        Section::make('Brand identity')->columns(2)->schema([
+                            TextInput::make('site_name')->required(),
+                            TextInput::make('site_tagline'),
+                            Textarea::make('site_description')->rows(3)->columnSpanFull(),
+                            FileUpload::make('site_logo')
+                                ->label('Site logo')
+                                ->image()
+                                ->directory('brand')
+                                ->disk('public')
+                                ->imageEditor()
+                                ->helperText('Shown in the header and footer. PNG or SVG recommended.'),
+                            FileUpload::make('site_favicon')
+                                ->label('Favicon')
+                                ->image()
+                                ->directory('brand')
+                                ->disk('public')
+                                ->acceptedFileTypes(['image/png', 'image/x-icon', 'image/vnd.microsoft.icon', 'image/svg+xml', 'image/webp'])
+                                ->helperText('Browser tab icon. Square PNG or ICO works best.'),
+                            TextInput::make('footer_badge'),
+                            TextInput::make('copyright_text')->columnSpanFull(),
+                        ]),
                     ]),
                     Tab::make('Contact')->schema([
                         TextInput::make('contact_email')->email()->required(),
@@ -119,6 +137,8 @@ class ManageSiteSettings extends Page
             'site_name' => ['brand', 'text', 'Site Name'],
             'site_tagline' => ['brand', 'text', 'Tagline'],
             'site_description' => ['brand', 'textarea', 'Site Description'],
+            'site_logo' => ['brand', 'image', 'Site Logo'],
+            'site_favicon' => ['brand', 'image', 'Favicon'],
             'footer_badge' => ['footer', 'text', 'Footer Badge'],
             'copyright_text' => ['footer', 'text', 'Copyright'],
             'contact_email' => ['contact', 'text', 'Email'],
@@ -148,10 +168,12 @@ class ManageSiteSettings extends Page
         }
 
         // Keep legacy keys in sync for the frontend layout
+        SiteSetting::setValue('brand_name', $data['site_name'] ?? null, 'brand', 'text', 'Brand Name');
         SiteSetting::setValue('meta_title', $data['default_meta_title'] ?? null, 'seo', 'text', 'Meta Title');
         SiteSetting::setValue('meta_description', $data['default_meta_description'] ?? null, 'seo', 'textarea', 'Meta Description');
         SiteSetting::setValue('meta_keywords', $data['default_meta_keywords'] ?? null, 'seo', 'text', 'Meta Keywords');
         SiteSetting::setValue('brand_tagline', $data['site_tagline'] ?? null, 'brand', 'text', 'Brand Tagline');
+        SiteSetting::setValue('og_image', is_array($data['default_og_image'] ?? null) ? ($data['default_og_image'][0] ?? null) : ($data['default_og_image'] ?? null), 'seo', 'image', 'OG Image');
 
         Notification::make()
             ->title('Settings saved')
