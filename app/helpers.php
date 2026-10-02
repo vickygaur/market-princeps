@@ -38,18 +38,19 @@ if (! function_exists('media_url')) {
             return $path;
         }
 
+        // Prefer root-relative URLs so assets work on localhost and 127.0.0.1.
         if (str_starts_with($path, 'storage/')) {
-            return asset($path);
+            return '/'.$path;
         }
 
         if (str_starts_with($path, '/')) {
-            return asset(ltrim($path, '/'));
+            return $path;
         }
 
         if (str_starts_with($path, 'images/')) {
-            return asset($path);
+            return '/'.$path;
         }
 
-        return asset('storage/'.$path);
+        return '/storage/'.$path;
     }
 }

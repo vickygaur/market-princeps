@@ -41,7 +41,9 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => rtrim(env('APP_URL', 'http://localhost'), '/').'/storage',
+            // Relative URL avoids FilePond CORS hangs when APP_URL host
+            // differs from the browser host (localhost vs 127.0.0.1).
+            'url' => '/storage',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,
