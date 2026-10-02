@@ -89,11 +89,14 @@ class ManageSiteSettings extends Page
                                 ->directory('brand')
                                 ->disk('public')
                                 ->visibility('public')
-                                ->imageEditor()
                                 ->maxFiles(1)
-                                ->downloadable()
-                                ->openable()
-                                ->helperText('Shown in the header and footer. PNG or SVG recommended.'),
+                                ->maxSize(2048)
+                                ->fetchFileInformation(false)
+                                ->imageResizeMode('contain')
+                                ->imageResizeTargetWidth('800')
+                                ->imagePreviewHeight('120')
+                                ->panelLayout('compact')
+                                ->helperText('Header & footer logo. Max 2MB. PNG/JPG/WebP/SVG recommended.'),
                             FileUpload::make('site_favicon')
                                 ->label('Favicon')
                                 ->image()
@@ -101,10 +104,16 @@ class ManageSiteSettings extends Page
                                 ->disk('public')
                                 ->visibility('public')
                                 ->maxFiles(1)
+                                ->maxSize(512)
+                                ->fetchFileInformation(false)
+                                ->imageResizeMode('cover')
+                                ->imageCropAspectRatio('1:1')
+                                ->imageResizeTargetWidth('128')
+                                ->imageResizeTargetHeight('128')
+                                ->imagePreviewHeight('80')
+                                ->panelLayout('compact')
                                 ->acceptedFileTypes(['image/png', 'image/x-icon', 'image/vnd.microsoft.icon', 'image/svg+xml', 'image/webp', 'image/jpeg'])
-                                ->downloadable()
-                                ->openable()
-                                ->helperText('Browser tab icon. Square PNG or ICO works best.'),
+                                ->helperText('Browser tab icon. Square image, max 512KB.'),
                             TextInput::make('footer_badge'),
                             TextInput::make('copyright_text')->columnSpanFull(),
                         ]),
@@ -124,7 +133,13 @@ class ManageSiteSettings extends Page
                                 ->directory('seo')
                                 ->disk('public')
                                 ->visibility('public')
-                                ->maxFiles(1),
+                                ->maxFiles(1)
+                                ->maxSize(2048)
+                                ->fetchFileInformation(false)
+                                ->imageResizeMode('contain')
+                                ->imageResizeTargetWidth('1200')
+                                ->imagePreviewHeight('120')
+                                ->panelLayout('compact'),
                             TextInput::make('default_robots')->default('index, follow'),
                             TextInput::make('google_analytics_id')->label('Google Analytics ID'),
                             TextInput::make('google_tag_manager_id')->label('Google Tag Manager ID'),
