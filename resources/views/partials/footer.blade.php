@@ -15,13 +15,13 @@
             <div class="flex flex-col gap-space-md">
                 <div class="flex items-center gap-space-sm">
                     @if ($siteLogo)
-                        <img src="{{ $siteLogo }}" alt="{{ $brandName }} logo" class="h-8 w-auto max-w-[140px] object-contain shrink-0">
+                        <img src="{{ $siteLogo }}" alt="{{ $brandName }}" class="h-9 w-auto max-w-[180px] object-contain shrink-0">
                     @else
                         <div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
                             <span class="material-symbols-outlined text-secondary-container text-[18px]">diamond</span>
                         </div>
+                        <span class="font-title-md text-title-md uppercase tracking-wider text-on-primary-fixed">{{ $brandName }}</span>
                     @endif
-                    <span class="font-title-md text-title-md uppercase tracking-wider text-on-primary-fixed">{{ $brandName }}</span>
                 </div>
                 <p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">{{ $footerBlurb }}</p>
                 <div class="inline-flex items-center gap-space-sm py-space-xs px-space-sm rounded-lg bg-surface-container w-fit">

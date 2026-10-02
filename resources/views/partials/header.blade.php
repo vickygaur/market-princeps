@@ -40,18 +40,18 @@
                 @if ($siteLogo)
                     <img
                         src="{{ $siteLogo }}"
-                        alt="{{ $brandName }} logo"
-                        class="h-10 w-auto max-w-[160px] object-contain transition-transform group-hover:scale-105 shrink-0"
+                        alt="{{ $brandName }}"
+                        class="h-10 md:h-12 w-auto max-w-[200px] object-contain transition-transform group-hover:scale-105 shrink-0"
                     >
                 @else
                     <div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center shadow-[0_2px_8px_-2px_rgba(22,27,51,0.3)] transition-transform group-hover:scale-105">
                         <span class="material-symbols-outlined text-secondary-container text-[22px]">diamond</span>
                     </div>
+                    <div class="flex flex-col min-w-0">
+                        <span class="font-title-md text-title-md tracking-wider text-on-primary-fixed uppercase truncate">{{ $brandName }}</span>
+                        <span class="font-label-caps text-label-caps uppercase text-secondary font-semibold truncate">{{ $brandTagline }}</span>
+                    </div>
                 @endif
-                <div class="flex flex-col min-w-0">
-                    <span class="font-title-md text-title-md tracking-wider text-on-primary-fixed uppercase truncate">{{ $brandName }}</span>
-                    <span class="font-label-caps text-label-caps uppercase text-secondary font-semibold truncate">{{ $brandTagline }}</span>
-                </div>
             </a>
         </div>
 
