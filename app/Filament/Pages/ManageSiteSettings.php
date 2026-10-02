@@ -88,14 +88,22 @@ class ManageSiteSettings extends Page
                                 ->image()
                                 ->directory('brand')
                                 ->disk('public')
+                                ->visibility('public')
                                 ->imageEditor()
+                                ->maxFiles(1)
+                                ->downloadable()
+                                ->openable()
                                 ->helperText('Shown in the header and footer. PNG or SVG recommended.'),
                             FileUpload::make('site_favicon')
                                 ->label('Favicon')
                                 ->image()
                                 ->directory('brand')
                                 ->disk('public')
-                                ->acceptedFileTypes(['image/png', 'image/x-icon', 'image/vnd.microsoft.icon', 'image/svg+xml', 'image/webp'])
+                                ->visibility('public')
+                                ->maxFiles(1)
+                                ->acceptedFileTypes(['image/png', 'image/x-icon', 'image/vnd.microsoft.icon', 'image/svg+xml', 'image/webp', 'image/jpeg'])
+                                ->downloadable()
+                                ->openable()
                                 ->helperText('Browser tab icon. Square PNG or ICO works best.'),
                             TextInput::make('footer_badge'),
                             TextInput::make('copyright_text')->columnSpanFull(),
@@ -111,7 +119,12 @@ class ManageSiteSettings extends Page
                             TextInput::make('default_meta_title')->maxLength(70),
                             Textarea::make('default_meta_description')->rows(3)->maxLength(160),
                             TextInput::make('default_meta_keywords'),
-                            FileUpload::make('default_og_image')->image()->directory('seo')->disk('public'),
+                            FileUpload::make('default_og_image')
+                                ->image()
+                                ->directory('seo')
+                                ->disk('public')
+                                ->visibility('public')
+                                ->maxFiles(1),
                             TextInput::make('default_robots')->default('index, follow'),
                             TextInput::make('google_analytics_id')->label('Google Analytics ID'),
                             TextInput::make('google_tag_manager_id')->label('Google Tag Manager ID'),
@@ -161,9 +174,13 @@ class ManageSiteSettings extends Page
 
         foreach ($map as $key => [$group, $type, $label]) {
             $value = $data[$key] ?? null;
-            if (is_array($value)) {
-                $value = $value[0] ?? null;
+
+            if ($type === 'image') {
+                $value = normalize_upload_path($value);
+            } elseif (is_array($value)) {
+                $value = normalize_upload_path($value) ?? (array_values($value)[0] ?? null);
             }
+
             SiteSetting::setValue($key, $value, $group, $type, $label);
         }
 
@@ -173,7 +190,7 @@ class ManageSiteSettings extends Page
         SiteSetting::setValue('meta_description', $data['default_meta_description'] ?? null, 'seo', 'textarea', 'Meta Description');
         SiteSetting::setValue('meta_keywords', $data['default_meta_keywords'] ?? null, 'seo', 'text', 'Meta Keywords');
         SiteSetting::setValue('brand_tagline', $data['site_tagline'] ?? null, 'brand', 'text', 'Brand Tagline');
-        SiteSetting::setValue('og_image', is_array($data['default_og_image'] ?? null) ? ($data['default_og_image'][0] ?? null) : ($data['default_og_image'] ?? null), 'seo', 'image', 'OG Image');
+        SiteSetting::setValue('og_image', normalize_upload_path($data['default_og_image'] ?? null), 'seo', 'image', 'OG Image');
 
         Notification::make()
             ->title('Settings saved')
