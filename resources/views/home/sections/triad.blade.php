@@ -24,7 +24,7 @@
     <div class="max-w-7xl mx-auto">
         <div class="flex flex-col items-center text-center mb-space-xl">
             <span class="font-label-caps text-label-caps uppercase tracking-widest text-secondary font-semibold mb-space-xs">{{ $eyebrow }}</span>
-            <h2 class="font-headline-lg text-headline-lg md:text-[38px] md:leading-tight text-on-surface max-w-2xl font-semibold">{{ $heading }}</h2>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface max-w-2xl font-semibold">{{ $heading }}</h2>
             <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-space-sm">{{ $intro }}</p>
             <div class="flex flex-wrap items-center justify-center gap-space-sm mt-space-lg bg-surface-container p-1.5 rounded-xl shadow-inner" id="triad-tabs">
                 <button class="px-space-lg py-2.5 rounded-lg text-label-md font-label-md font-semibold transition-all bg-primary-container text-on-primary shadow-sm flex items-center gap-space-sm card-hover-elevate" id="btn-p1" onclick="switchTriad('p1')" type="button">

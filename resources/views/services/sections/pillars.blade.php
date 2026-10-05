@@ -18,7 +18,7 @@
                 <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
                 <span class="font-label-caps uppercase tracking-widest font-bold">{{ $badge }}</span>
             </div>
-            <h2 class="font-headline-lg text-3xl md:text-4xl text-slate-900 font-bold tracking-tight">{{ $heading }}</h2>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-slate-900 font-bold tracking-tight">{{ $heading }}</h2>
             <p class="font-body-md text-slate-600 text-sm md:text-base leading-relaxed">{{ $intro }}</p>
         </div>
 
@@ -63,7 +63,7 @@
                             @endif
                         </div>
                         <div class="space-y-3">
-                            <h3 class="font-headline-md text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">{{ $pillar['title'] ?? '' }}</h3>
+                            <h3 class="font-headline-md text-headline-md font-bold text-slate-900 tracking-tight">{{ $pillar['title'] ?? '' }}</h3>
                             <p class="font-body-md text-slate-600 leading-relaxed text-base md:text-lg max-w-3xl">{{ $pillar['body'] ?? '' }}</p>
                         </div>
                         @if (! empty($pillar['features']))

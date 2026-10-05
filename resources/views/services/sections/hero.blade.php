@@ -30,7 +30,7 @@
                     <span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
                     <span class="font-label-caps uppercase font-bold tracking-widest">{{ $badge }}</span>
                 </div>
-                <h1 class="font-display-hero text-3xl md:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-tight md:leading-[1.15] font-bold">
+                <h1 class="font-display-hero text-display-hero-mobile md:text-display-hero text-slate-900 tracking-tight leading-tight md:leading-[1.15] font-bold">
                     {{ $titleBefore }}@if ($titleHighlight)<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-500 to-amber-600 text-glow-shimmer font-bold">{{ $titleHighlight }}</span>@endif{{ $titleAfter }}
                 </h1>
                 <p class="font-body-md text-slate-600 text-base md:text-lg max-w-xl leading-relaxed">{{ $body }}</p>

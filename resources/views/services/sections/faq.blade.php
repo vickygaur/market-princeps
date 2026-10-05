@@ -19,7 +19,7 @@
                 <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
                 <span class="font-label-caps uppercase tracking-widest font-bold">{{ $badge }}</span>
             </div>
-            <h2 class="font-headline-lg text-3xl md:text-4xl text-slate-900 font-bold tracking-tight">{{ $heading }}</h2>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-slate-900 font-bold tracking-tight">{{ $heading }}</h2>
             <p class="font-body-md text-slate-600 text-sm md:text-base leading-relaxed">{{ $intro }}</p>
         </div>
         @if (count($items) > 0)
