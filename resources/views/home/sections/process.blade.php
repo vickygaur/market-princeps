@@ -16,7 +16,7 @@
     <div class="max-w-7xl mx-auto">
         <div class="flex flex-col items-center text-center mb-space-xl">
             <span class="font-label-caps text-label-caps uppercase tracking-widest text-secondary font-semibold mb-space-xs">{{ $eyebrow }}</span>
-            <h2 class="font-headline-lg text-headline-lg md:text-[38px] md:leading-tight text-on-surface max-w-2xl font-semibold">{{ $heading }}</h2>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface max-w-2xl font-semibold">{{ $heading }}</h2>
             <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-space-sm">{{ $intro }}</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">

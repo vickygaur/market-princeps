@@ -19,6 +19,7 @@ class SiteSettingForm
                 'seo' => 'Global SEO',
                 'social' => 'Social',
                 'footer' => 'Footer',
+                'typography' => 'Typography',
             ])->default('general')->required(),
             TextInput::make('key')->required()->unique(ignoreRecord: true),
             TextInput::make('label'),
@@ -28,6 +29,7 @@ class SiteSettingForm
                 'image' => 'Image',
                 'url' => 'URL',
                 'boolean' => 'Boolean',
+                'json' => 'JSON',
             ])->default('text'),
             Textarea::make('value')->rows(4),
         ]);

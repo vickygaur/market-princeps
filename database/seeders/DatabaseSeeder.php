@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             AboutPageSeeder::class,
             ContactPageSeeder::class,
             SeoServicePageSeeder::class,
+            TypographySettingsSeeder::class,
         ]);
     }
 }

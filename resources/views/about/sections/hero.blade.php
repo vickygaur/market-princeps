@@ -52,7 +52,7 @@
     <div class="absolute top-1/3 -left-28 w-[520px] h-[520px] rounded-full bg-gradient-to-tr from-secondary-fixed/30 via-primary-container/6 to-transparent blur-3xl pointer-events-none animate-pulse-glow"></div>
     <canvas class="absolute inset-0 pointer-events-none opacity-40 z-0" id="hero-particle-canvas" width="1280" height="871"></canvas>
     <div class="relative max-w-7xl mx-auto flex flex-col items-center text-center z-10">
-        <h1 class="font-headline-lg font-medium text-headline-lg md:text-[48px] lg:text-display-hero text-[#2A3042] max-w-5xl tracking-tight leading-tight mb-6">
+        <h1 class="font-display-hero font-medium text-display-hero-mobile md:text-display-hero text-[#2A3042] max-w-5xl tracking-tight leading-tight mb-6">
             {!! $titleHtml !!}
         </h1>
         <div class="max-w-3xl mx-auto mb-8 text-center space-y-3">

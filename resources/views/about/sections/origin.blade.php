@@ -27,7 +27,7 @@
                     <span class="w-2 h-0.5 bg-secondary"></span>
                     <span>{{ $eyebrow }}</span>
                 </div>
-                <h2 class="font-headline-lg text-headline-lg md:text-[38px] md:leading-tight text-on-surface font-semibold tracking-tight">{!! $titleHtml !!}</h2>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-semibold tracking-tight">{!! $titleHtml !!}</h2>
                 @foreach ($paragraphs as $paragraph)
                     <p class="{{ $loop->first ? 'font-body-lg text-body-lg' : 'font-body-md text-body-md' }} text-on-surface-variant leading-relaxed">{!! $paragraph !!}</p>
                 @endforeach

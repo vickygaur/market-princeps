@@ -43,7 +43,7 @@
                 <span>{{ $eyebrow }}</span>
                 <span class="w-2 h-0.5 bg-secondary"></span>
             </div>
-            <h2 class="mt-space-xs font-headline-lg text-headline-lg md:text-[38px] md:leading-tight text-on-surface font-semibold tracking-tight">{{ $title }}</h2>
+            <h2 class="mt-space-xs font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-semibold tracking-tight">{{ $title }}</h2>
             <p class="mt-space-sm font-body-md text-body-md text-on-surface-variant leading-relaxed">{{ $subtitle }}</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto items-stretch">

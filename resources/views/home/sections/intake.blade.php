@@ -22,7 +22,7 @@
                         <span class="w-2 h-2 rounded-full bg-secondary-container beacon-pulse"></span>
                         <span class="font-label-caps text-label-caps uppercase text-secondary font-bold tracking-wider">{{ $badge }}</span>
                     </div>
-                    <h2 class="font-headline-lg text-headline-lg md:text-[34px] md:leading-tight text-on-surface mb-space-md font-semibold">{{ $heading }}</h2>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-space-md font-semibold">{{ $heading }}</h2>
                     <p class="font-body-md text-body-md text-on-surface-variant mb-space-lg leading-relaxed">{{ $intro }}</p>
                     <div class="space-y-space-md">
                         @foreach ($highlights as $item)
