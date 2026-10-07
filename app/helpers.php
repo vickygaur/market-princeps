@@ -54,3 +54,80 @@ if (! function_exists('media_url')) {
         return '/storage/'.$path;
     }
 }
+
+if (! function_exists('normalize_content_style_value')) {
+    /**
+     * Normalize admin style values so bare numbers become valid CSS.
+     */
+    function normalize_content_style_value(string $key, mixed $value): ?string
+    {
+        if (blank($value) || (! is_string($value) && ! is_numeric($value))) {
+            return null;
+        }
+
+        $value = trim((string) $value);
+
+        if ($value === '') {
+            return null;
+        }
+
+        // Font size: "32" => "32px"
+        if ($key === 'size' && preg_match('/^-?\d+(\.\d+)?$/', $value) === 1) {
+            return $value.'px';
+        }
+
+        // Line height: large numbers are treated as px; small decimals stay unitless (e.g. 1.4)
+        if ($key === 'line_height' && preg_match('/^-?\d+(\.\d+)?$/', $value) === 1) {
+            return ((float) $value) >= 10 ? $value.'px' : $value;
+        }
+
+        // Letter spacing: "0.02" => "0.02em"
+        if ($key === 'letter_spacing' && preg_match('/^-?\d+(\.\d+)?$/', $value) === 1) {
+            return $value.'em';
+        }
+
+        return $value;
+    }
+}
+
+if (! function_exists('content_style_attrs')) {
+    /**
+     * Inline style attribute for optional admin-managed content styles.
+     * Uses !important so values win over global typography utility CSS.
+     *
+     * @param  array<string, mixed>|null  $style
+     */
+    function content_style_attrs(?array $style): string
+    {
+        if (! is_array($style)) {
+            return '';
+        }
+
+        $map = [
+            'size' => 'font-size',
+            'weight' => 'font-weight',
+            'color' => 'color',
+            'line_height' => 'line-height',
+            'letter_spacing' => 'letter-spacing',
+            'background' => 'background-color',
+        ];
+
+        $parts = [];
+
+        foreach ($map as $key => $cssProp) {
+            $value = normalize_content_style_value($key, $style[$key] ?? null);
+
+            if ($value === null) {
+                continue;
+            }
+
+            $parts[] = $cssProp.': '.$value.' !important';
+        }
+
+        if ($parts === []) {
+            return '';
+        }
+
+        return ' style="'.htmlspecialchars(implode('; ', $parts).';', ENT_COMPAT, 'UTF-8').'"';
+    }
+}

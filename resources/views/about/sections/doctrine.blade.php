@@ -38,10 +38,10 @@
 <section class="w-full bg-surface-container-low py-20 px-6 md:px-margin">
     <div class="max-w-7xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-12 reveal-init">
-            <div class="inline-flex items-center gap-space-xs text-secondary font-label-caps text-label-caps uppercase tracking-widest font-semibold">
-                <span class="w-2 h-0.5 bg-secondary"></span>
-                <span>{{ $eyebrow }}</span>
-                <span class="w-2 h-0.5 bg-secondary"></span>
+            <div class="inline-flex items-center justify-center gap-space-xs text-secondary font-label-caps text-label-caps uppercase tracking-widest font-semibold px-1">
+                <span class="w-2 h-0.5 bg-secondary shrink-0 hidden sm:block"></span>
+                <span class="leading-snug text-center break-mobile">{{ $eyebrow }}</span>
+                <span class="w-2 h-0.5 bg-secondary shrink-0 hidden sm:block"></span>
             </div>
             <h2 class="mt-space-xs font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-semibold tracking-tight">{{ $title }}</h2>
             <p class="mt-space-sm font-body-md text-body-md text-on-surface-variant leading-relaxed">{{ $subtitle }}</p>
@@ -56,9 +56,9 @@
                         <h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs font-semibold">{{ data_get($item, 'title') }}</h4>
                         <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">{{ data_get($item, 'description') }}</p>
                     </div>
-                    <div class="mt-space-lg pt-space-sm flex items-center gap-space-xs text-secondary font-label-caps text-label-caps uppercase font-semibold">
-                        <span class="material-symbols-outlined text-[16px]">{{ data_get($item, 'footer_icon', 'check') }}</span>
-                        <span>{{ data_get($item, 'footer_label') }}</span>
+                    <div class="mt-space-lg pt-space-sm flex items-start gap-space-xs text-secondary font-label-caps text-label-caps uppercase font-semibold">
+                        <span class="material-symbols-outlined text-[16px] shrink-0">{{ data_get($item, 'footer_icon', 'check') }}</span>
+                        <span class="leading-snug">{{ data_get($item, 'footer_label') }}</span>
                     </div>
                 </div>
             @endforeach

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Services\Schemas;
 
+use App\Filament\Forms\ContentStyles;
 use App\Support\MaterialIcons;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
@@ -76,6 +77,18 @@ class ServiceForm
                             ->collapsible()
                             ->columnSpanFull(),
                     ])->columns(2),
+                    ContentStyles::section('page_content.hero.styles', [
+                        'badge' => 'Badge',
+                        'title' => 'Title',
+                        'title_highlight' => 'Highlighted title word',
+                        'body' => 'Body',
+                        'primary_cta' => 'Primary CTA',
+                        'secondary_cta' => 'Secondary CTA',
+                        'trust_line' => 'Trust line',
+                        'radar_title' => 'Radar title',
+                        'radar_footer' => 'Radar footer',
+                        'radar_item' => 'Radar items',
+                    ]),
                 ]),
 
                 Tab::make('Difference')->schema([
@@ -111,6 +124,28 @@ class ServiceForm
                                 ->label('Button link')
                                 ->placeholder('#intakeTerminal'),
                         ])->columns(2),
+                    ContentStyles::section('page_content.difference.styles', [
+                        'badge' => 'Section badge',
+                        'heading' => 'Section heading',
+                        'intro' => 'Section intro',
+                        'negative_label' => 'Problem card label',
+                        'negative_title' => 'Problem card title',
+                        'negative_body' => 'Problem card body',
+                        'negative_point' => 'Problem card points',
+                        'negative_footer' => 'Problem card footer',
+                        'negative_card' => 'Problem card surface (bg + text)',
+                        'positive_label' => 'Approach card label',
+                        'positive_title' => 'Approach card title',
+                        'positive_body' => 'Approach card body',
+                        'positive_point' => 'Approach card points',
+                        'positive_footer' => 'Approach card footer',
+                        'positive_card' => 'Approach card surface (bg + text)',
+                        'cta_badge' => 'CTA badge',
+                        'cta_heading' => 'CTA heading',
+                        'cta_body' => 'CTA body',
+                        'cta_button' => 'CTA button',
+                        'cta_banner' => 'CTA banner surface (bg + text)',
+                    ]),
                 ]),
 
                 Tab::make('Pillars')->schema([
@@ -156,6 +191,18 @@ class ServiceForm
                             ->itemLabel(fn (array $state): ?string => $state['tab_title'] ?? $state['title'] ?? null)
                             ->columnSpanFull(),
                     ])->columns(2),
+                    ContentStyles::section('page_content.pillars.styles', [
+                        'badge' => 'Badge',
+                        'heading' => 'Heading',
+                        'intro' => 'Intro',
+                        'tab_title' => 'Tab titles',
+                        'title' => 'Pillar titles',
+                        'body' => 'Pillar body',
+                        'feature_title' => 'Feature titles',
+                        'feature_body' => 'Feature descriptions',
+                        'target' => 'Target line',
+                        'cta' => 'CTA button',
+                    ]),
                 ]),
 
                 Tab::make('Roadmap')->schema([
@@ -185,6 +232,18 @@ class ServiceForm
                             ->label('CTA button link')
                             ->placeholder('#intakeTerminal'),
                     ]),
+                    ContentStyles::section('page_content.roadmap.styles', [
+                        'badge' => 'Badge',
+                        'heading' => 'Heading',
+                        'intro' => 'Intro',
+                        'step_number' => 'Step number',
+                        'step_phase' => 'Step phase',
+                        'step_title' => 'Step title',
+                        'step_body' => 'Step body',
+                        'cta_heading' => 'CTA heading',
+                        'cta_body' => 'CTA body',
+                        'cta_button' => 'CTA button',
+                    ]),
                 ]),
 
                 Tab::make('FAQ')->schema([
@@ -211,6 +270,16 @@ class ServiceForm
                             ->label('Side CTA button link')
                             ->placeholder('#intakeTerminal'),
                     ]),
+                    ContentStyles::section('page_content.faq.styles', [
+                        'badge' => 'Badge',
+                        'heading' => 'Heading',
+                        'intro' => 'Intro',
+                        'question' => 'Questions',
+                        'answer' => 'Answers',
+                        'side_cta_title' => 'Side CTA title',
+                        'side_cta_body' => 'Side CTA body',
+                        'side_cta_button' => 'Side CTA button',
+                    ]),
                 ]),
 
                 Tab::make('Intake')->schema([
@@ -234,6 +303,16 @@ class ServiceForm
                             ->collapsible()
                             ->columnSpanFull(),
                     ])->columns(2),
+                    ContentStyles::section('page_content.intake.styles', [
+                        'badge' => 'Badge',
+                        'heading' => 'Heading',
+                        'intro' => 'Intro',
+                        'submit' => 'Submit button',
+                        'disclaimer' => 'Disclaimer',
+                        'protocol_title' => 'Protocol title',
+                        'protocol_step_title' => 'Protocol step titles',
+                        'protocol_step_body' => 'Protocol step body',
+                    ]),
                 ]),
 
                 Tab::make('SEO')->schema([

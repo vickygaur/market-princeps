@@ -25,79 +25,80 @@
     $ctaButtonUrl = filled(data_get($content, 'difference.cta.button_url'))
         ? data_get($content, 'difference.cta.button_url')
         : '#intakeTerminal';
+    $styles = data_get($content, 'difference.styles', []);
 @endphp
 <section class="w-full px-6 md:px-margin py-16 md:py-24 bg-surface-container-low">
     <div class="max-w-7xl mx-auto flex flex-col gap-10 md:gap-14">
         <div class="text-center max-w-2xl mx-auto space-y-3">
             <div class="font-semibold text-xs tracking-wider text-amber-700 bg-amber-50/80 px-3 py-1 rounded-full border border-amber-200/50 inline-flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                <span class="font-label-caps uppercase tracking-widest font-bold">{{ $badge }}</span>
+                <span class="font-label-caps uppercase tracking-widest font-bold"{!! content_style_attrs(data_get($styles, 'badge')) !!}>{{ $badge }}</span>
             </div>
-            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-slate-900 font-bold tracking-tight">{{ $heading }}</h2>
-            <p class="font-body-md text-slate-600 text-sm md:text-base leading-relaxed">{{ $intro }}</p>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-slate-900 font-bold tracking-tight"{!! content_style_attrs(data_get($styles, 'heading')) !!}>{{ $heading }}</h2>
+            <p class="font-body-md text-slate-600 text-sm md:text-base leading-relaxed"{!! content_style_attrs(data_get($styles, 'intro')) !!}>{{ $intro }}</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
-            <div class="p-6 md:p-8 rounded-2xl bg-surface-container-lowest border border-error/20 flex flex-col justify-between shadow-sm">
+            <div class="p-6 md:p-8 rounded-2xl bg-surface-container-lowest border border-error/20 flex flex-col justify-between shadow-sm"{!! content_style_attrs(data_get($styles, 'negative_card')) !!}>
                 <div class="space-y-6">
                     <div class="flex items-center justify-between pb-3.5 border-b border-surface-container">
-                        <span class="font-label-caps text-xs uppercase font-bold text-error tracking-wider">{{ $negative['label'] ?? '' }}</span>
+                        <span class="font-label-caps text-xs uppercase font-bold text-error tracking-wider"{!! content_style_attrs(data_get($styles, 'negative_label')) !!}>{{ $negative['label'] ?? '' }}</span>
                         <div class="w-7 h-7 rounded-full bg-red-50 flex items-center justify-center text-error"><span class="material-symbols-outlined text-[18px]">close</span></div>
                     </div>
                     <div class="space-y-1.5">
-                        <h3 class="font-title-md text-lg md:text-xl font-bold text-primary">{{ $negative['title'] ?? '' }}</h3>
-                        <p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">{{ $negative['body'] ?? '' }}</p>
+                        <h3 class="font-title-md text-lg md:text-xl font-bold text-primary"{!! content_style_attrs(data_get($styles, 'negative_title')) !!}>{{ $negative['title'] ?? '' }}</h3>
+                        <p class="font-body-sm text-sm text-on-surface-variant leading-relaxed"{!! content_style_attrs(data_get($styles, 'negative_body')) !!}>{{ $negative['body'] ?? '' }}</p>
                     </div>
                     <div class="space-y-3 pt-2">
                         @foreach ($negative['points'] ?? [] as $point)
                             <div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low text-on-surface text-sm">
                                 <span class="w-5 h-5 rounded-full bg-red-100 text-error flex items-center justify-center text-xs shrink-0 font-bold">✕</span>
-                                <span class="font-medium">{{ $point }}</span>
+                                <span class="font-medium"{!! content_style_attrs(data_get($styles, 'negative_point')) !!}>{{ $point }}</span>
                             </div>
                         @endforeach
                     </div>
                 </div>
-                <div class="mt-8 pt-4 border-t border-surface-container flex items-center justify-between text-xs text-error font-semibold">
-                    <span>{{ $negative['footer'] ?? '' }}</span>
-                    <span class="material-symbols-outlined text-[16px]">trending_flat</span>
+                <div class="mt-8 pt-4 border-t border-surface-container flex items-start sm:items-center justify-between gap-2 text-xs text-error font-semibold">
+                    <span class="leading-snug break-mobile"{!! content_style_attrs(data_get($styles, 'negative_footer')) !!}>{{ $negative['footer'] ?? '' }}</span>
+                    <span class="material-symbols-outlined text-[16px] shrink-0">trending_flat</span>
                 </div>
             </div>
-            <div class="p-6 md:p-8 rounded-2xl bg-primary-container text-on-primary border border-secondary-container/30 flex flex-col justify-between shadow-xl relative overflow-hidden">
+            <div class="p-6 md:p-8 rounded-2xl bg-primary-container text-on-primary border border-secondary-container/30 flex flex-col justify-between shadow-xl relative overflow-hidden"{!! content_style_attrs(data_get($styles, 'positive_card')) !!}>
                 <div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-secondary-container/10 pointer-events-none"></div>
                 <div class="space-y-6 relative z-10">
                     <div class="flex items-center justify-between pb-3.5 border-b border-white/10">
-                        <span class="font-label-caps text-xs uppercase font-bold text-secondary-container tracking-wider">{{ $positive['label'] ?? '' }}</span>
+                        <span class="font-label-caps text-xs uppercase font-bold text-secondary-container tracking-wider"{!! content_style_attrs(data_get($styles, 'positive_label')) !!}>{{ $positive['label'] ?? '' }}</span>
                         <div class="w-7 h-7 rounded-full bg-amber-500/20 flex items-center justify-center text-secondary-container"><span class="material-symbols-outlined text-[18px]">check</span></div>
                     </div>
                     <div class="space-y-1.5">
-                        <h3 class="font-title-md text-lg md:text-xl font-bold text-on-primary">{{ $positive['title'] ?? '' }}</h3>
-                        <p class="font-body-sm text-sm text-surface-container-highest/80 leading-relaxed">{{ $positive['body'] ?? '' }}</p>
+                        <h3 class="font-title-md text-lg md:text-xl font-bold text-on-primary"{!! content_style_attrs(data_get($styles, 'positive_title')) !!}>{{ $positive['title'] ?? '' }}</h3>
+                        <p class="font-body-sm text-sm text-surface-container-highest/80 leading-relaxed"{!! content_style_attrs(data_get($styles, 'positive_body')) !!}>{{ $positive['body'] ?? '' }}</p>
                     </div>
                     <div class="space-y-3 pt-2">
                         @foreach ($positive['points'] ?? [] as $point)
                             <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 text-on-primary text-sm">
                                 <span class="w-5 h-5 rounded-full bg-secondary-container/20 text-secondary-container flex items-center justify-center text-xs shrink-0 font-bold">✓</span>
-                                <span class="font-medium">{{ $point }}</span>
+                                <span class="font-medium"{!! content_style_attrs(data_get($styles, 'positive_point')) !!}>{{ $point }}</span>
                             </div>
                         @endforeach
                     </div>
                 </div>
-                <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-secondary-container font-semibold relative z-10">
-                    <span>{{ $positive['footer'] ?? '' }}</span>
-                    <span class="material-symbols-outlined text-[16px]">trending_up</span>
+                <div class="mt-8 pt-4 border-t border-white/10 flex items-start sm:items-center justify-between gap-2 text-xs text-secondary-container font-semibold relative z-10">
+                    <span class="leading-snug break-mobile"{!! content_style_attrs(data_get($styles, 'positive_footer')) !!}>{{ $positive['footer'] ?? '' }}</span>
+                    <span class="material-symbols-outlined text-[16px] shrink-0">trending_up</span>
                 </div>
             </div>
         </div>
-        <div class="rounded-2xl bg-surface-container-lowest p-6 md:p-8 border border-outline-variant/30 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="rounded-2xl bg-surface-container-lowest p-6 md:p-8 border border-outline-variant/30 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6"{!! content_style_attrs(data_get($styles, 'cta_banner')) !!}>
             <div class="space-y-2 text-center md:text-left">
                 <div class="font-semibold text-xs tracking-wider text-amber-700 bg-amber-50/80 px-3 py-1 rounded-full border border-amber-200/50 inline-flex items-center gap-2">
                     <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                    <span class="font-label-caps uppercase tracking-widest font-bold">{{ $ctaBadge }}</span>
+                    <span class="font-label-caps uppercase tracking-widest font-bold"{!! content_style_attrs(data_get($styles, 'cta_badge')) !!}>{{ $ctaBadge }}</span>
                 </div>
-                <h3 class="font-headline-sm text-lg md:text-xl font-bold text-slate-900">{{ $ctaHeading }}</h3>
-                <p class="font-body-sm text-sm text-slate-600">{{ $ctaBody }}</p>
+                <h3 class="font-headline-sm text-lg md:text-xl font-bold text-slate-900"{!! content_style_attrs(data_get($styles, 'cta_heading')) !!}>{{ $ctaHeading }}</h3>
+                <p class="font-body-sm text-sm text-slate-600"{!! content_style_attrs(data_get($styles, 'cta_body')) !!}>{{ $ctaBody }}</p>
             </div>
             <div class="shrink-0 w-full md:w-auto">
-                <a class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-primary-container text-on-primary font-title-md text-sm font-semibold hover:bg-primary shadow-md hover:shadow-lg transition-all group" href="{{ $ctaButtonUrl }}">
+                <a class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-primary-container text-on-primary font-title-md text-sm font-semibold hover:bg-primary shadow-md hover:shadow-lg transition-all group" href="{{ $ctaButtonUrl }}"{!! content_style_attrs(data_get($styles, 'cta_button')) !!}>
                     <span>{{ $ctaButtonLabel }}</span>
                     <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform text-secondary-container">arrow_forward</span>
                 </a>

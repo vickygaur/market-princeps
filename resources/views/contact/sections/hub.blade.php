@@ -59,21 +59,21 @@
 <section class="w-full px-gutter md:px-margin pb-space-xl">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
         <div class="lg:col-span-5 flex flex-col space-y-space-lg">
-            <div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-xl shadow-sm transition-all duration-300 hover:shadow-md flex flex-col justify-between space-y-space-md">
-                <div class="flex items-start justify-between gap-space-sm">
-                    <div class="flex items-center gap-space-sm">
+            <div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-md sm:p-space-xl shadow-sm transition-all duration-300 hover:shadow-md flex flex-col justify-between space-y-space-md">
+                <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-sm">
+                    <div class="flex items-center gap-space-sm min-w-0">
                         <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary shrink-0">
                             <span class="material-symbols-outlined text-[24px]">perm_phone_msg</span>
                         </div>
-                        <div>
+                        <div class="min-w-0">
                             <span class="font-label-caps text-label-caps uppercase text-secondary font-bold tracking-wider block">{{ $callLabel }}</span>
-                            <h3 class="font-title-md text-title-md text-primary font-bold">{{ $callPhone }}</h3>
+                            <h3 class="font-title-md text-title-md text-primary font-bold break-all">{{ $callPhone }}</h3>
                         </div>
                     </div>
-                    <span class="px-space-xs py-0.5 rounded text-[10px] font-label-caps uppercase tracking-wider bg-surface-container text-on-surface-variant font-medium shrink-0">{{ $callHours }}</span>
+                    <span class="w-fit px-space-xs py-0.5 rounded text-[10px] font-label-caps uppercase tracking-wider bg-surface-container text-on-surface-variant font-medium leading-snug">{{ $callHours }}</span>
                 </div>
                 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">{{ $callBody }}</p>
-                <div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
                     <a class="h-10 inline-flex items-center justify-center gap-space-xs px-space-md rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-all shadow-sm" href="{{ $telHref }}">
                         <span class="material-symbols-outlined text-[18px] text-secondary-container">call</span>
                         <span>{{ $callBtnLabel }}</span>
@@ -85,16 +85,16 @@
                 </div>
             </div>
 
-            <div class="rounded-xl bg-surface-container-lowest p-space-xl shadow-sm transition-all duration-300 hover:shadow-md flex flex-col justify-between space-y-space-md">
+            <div class="rounded-xl bg-surface-container-lowest p-space-md sm:p-space-xl shadow-sm transition-all duration-300 hover:shadow-md flex flex-col justify-between space-y-space-md">
                 <div class="flex items-center justify-between gap-space-sm">
-                    <div class="flex items-center gap-space-sm">
+                    <div class="flex items-center gap-space-sm min-w-0">
                         <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary shrink-0">
                             <span class="material-symbols-outlined text-[24px]">drafts</span>
                         </div>
-                        <div>
+                        <div class="min-w-0">
                             <span class="font-label-caps text-label-caps uppercase text-secondary font-bold tracking-wider block">{{ $emailLabel }}</span>
-                            <p class="font-title-md text-title-md text-primary font-bold">
-                                <a class="hover:text-secondary transition-colors" href="mailto:{{ $emailAddress }}">{{ $emailAddress }}</a>
+                            <p class="font-title-md text-sm sm:text-title-md text-primary font-bold">
+                                <a class="hover:text-secondary transition-colors break-all" href="mailto:{{ $emailAddress }}">{{ $emailAddress }}</a>
                             </p>
                         </div>
                     </div>
@@ -102,10 +102,10 @@
                 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">{{ $emailBody }}</p>
             </div>
 
-            <div class="rounded-xl bg-surface-container-low p-space-xl shadow-sm flex flex-col space-y-space-md">
-                <div class="flex items-center gap-space-xs">
-                    <span class="material-symbols-outlined text-secondary text-[22px]">account_tree</span>
-                    <h4 class="font-title-md text-title-md text-primary font-bold">{{ $protocolTitle }}</h4>
+            <div class="rounded-xl bg-surface-container-low p-space-md sm:p-space-xl shadow-sm flex flex-col space-y-space-md">
+                <div class="flex items-start sm:items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-secondary text-[22px] shrink-0">account_tree</span>
+                    <h4 class="font-title-md text-title-md text-primary font-bold leading-snug">{{ $protocolTitle }}</h4>
                 </div>
                 <div class="space-y-space-lg pt-space-xs">
                     @foreach ($protocolSteps as $step)
@@ -122,11 +122,11 @@
         </div>
 
         <div class="lg:col-span-7">
-            <div class="rounded-xl bg-surface-container-lowest p-space-lg md:p-space-xl shadow-md relative overflow-hidden">
+            <div class="rounded-xl bg-surface-container-lowest p-space-md sm:p-space-lg md:p-space-xl shadow-md relative overflow-hidden">
                 <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-secondary-container to-secondary"></div>
                 <div class="mb-space-lg">
-                    <span class="font-label-caps text-label-caps uppercase tracking-[0.18em] text-secondary font-bold">{{ $formEyebrow }}</span>
-                    <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-space-xs mb-space-xs font-bold">{{ $formTitle }}</h2>
+                    <span class="font-label-caps text-label-caps uppercase tracking-wider sm:tracking-[0.18em] text-secondary font-bold">{{ $formEyebrow }}</span>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary tracking-tight mt-space-xs mb-space-xs font-bold">{{ $formTitle }}</h2>
                     <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">{{ $formIntro }}</p>
                 </div>
 

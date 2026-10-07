@@ -34,14 +34,14 @@
     };
 @endphp
 <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(22,27,51,0.06)]">
-    <div class="h-20 w-full px-margin-mobile md:px-margin flex items-center justify-between relative">
-        <div class="flex items-center gap-space-md group flex-1 min-w-0">
-            <a class="flex items-center gap-space-md group" href="{{ route('home') }}">
+    <div class="h-20 w-full px-margin-mobile md:px-margin flex items-center justify-between gap-3 relative">
+        <div class="flex items-center gap-space-md group min-w-0 flex-1 md:flex-none">
+            <a class="flex items-center gap-space-md group min-w-0" href="{{ route('home') }}">
                 @if ($siteLogo)
                     <img
                         src="{{ $siteLogo }}"
                         alt="{{ $brandName }}"
-                        class="h-10 md:h-12 w-auto max-w-[200px] object-contain transition-transform group-hover:scale-105 shrink-0"
+                        class="h-9 sm:h-10 md:h-12 w-auto max-w-[140px] sm:max-w-[180px] md:max-w-[200px] object-contain transition-transform group-hover:scale-105 shrink-0"
                     >
                 @else
                     <div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center shadow-[0_2px_8px_-2px_rgba(22,27,51,0.3)] transition-transform group-hover:scale-105">
@@ -103,7 +103,7 @@
             <a class="font-label-md text-label-md tracking-wide text-on-surface-variant hover:text-on-surface transition-colors py-space-xs {{ request()->routeIs('contact') ? 'text-secondary font-semibold' : '' }}" href="{{ route('contact') }}">Contact</a>
         </nav>
 
-        <div class="flex flex-1 justify-end items-center gap-space-sm">
+        <div class="flex shrink-0 justify-end items-center gap-space-sm">
             <button
                 type="button"
                 id="mobile-menu-toggle"

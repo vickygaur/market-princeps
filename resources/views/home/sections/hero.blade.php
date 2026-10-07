@@ -56,10 +56,10 @@
                         <span class="font-label-caps text-label-caps uppercase text-secondary font-bold tracking-wider" id="hero-subhead">{{ $heroSubheadDefault }}</span>
                     </div>
                 </div>
-                <div class="flex items-center bg-surface-container p-1 rounded-lg gap-1 shadow-inner" id="hero-tabs">
-                    <button class="px-space-md py-1.5 rounded text-xs font-label-md transition-all bg-primary-container text-on-primary shadow-sm font-semibold" id="tab-attract" onclick="setHeroMode('attract')" type="button">Attract</button>
-                    <button class="px-space-md py-1.5 rounded text-xs font-label-md transition-all text-on-surface-variant hover:text-on-surface font-semibold" id="tab-convert" onclick="setHeroMode('convert')" type="button">Convert</button>
-                    <button class="px-space-md py-1.5 rounded text-xs font-label-md transition-all text-on-surface-variant hover:text-on-surface font-semibold" id="tab-optimize" onclick="setHeroMode('optimize')" type="button">Optimize</button>
+                <div class="flex items-center w-full sm:w-auto bg-surface-container p-1 rounded-lg gap-1 shadow-inner" id="hero-tabs">
+                    <button class="flex-1 sm:flex-none px-space-md py-1.5 rounded text-xs font-label-md transition-all bg-primary-container text-on-primary shadow-sm font-semibold" id="tab-attract" onclick="setHeroMode('attract')" type="button">Attract</button>
+                    <button class="flex-1 sm:flex-none px-space-md py-1.5 rounded text-xs font-label-md transition-all text-on-surface-variant hover:text-on-surface font-semibold" id="tab-convert" onclick="setHeroMode('convert')" type="button">Convert</button>
+                    <button class="flex-1 sm:flex-none px-space-md py-1.5 rounded text-xs font-label-md transition-all text-on-surface-variant hover:text-on-surface font-semibold" id="tab-optimize" onclick="setHeroMode('optimize')" type="button">Optimize</button>
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-space-md mb-space-md relative" id="hero-nodes-grid">
@@ -93,14 +93,16 @@
                     </div>
                 @endforeach
             </div>
-            <div class="p-space-sm rounded-lg bg-surface-container flex flex-wrap items-center justify-between gap-space-sm font-label-caps text-label-caps uppercase">
-                <div class="flex items-center gap-space-sm">
-                    <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-container opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary-container"></span></span>
-                    <span class="text-on-surface font-semibold">ACTIVE FOCUS:</span>
-                    <span class="text-secondary font-bold" id="hero-status-tag">{{ $heroStatusDefault }}</span>
+            <div class="p-space-sm rounded-lg bg-surface-container flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center justify-between gap-space-sm font-label-caps text-label-caps uppercase">
+                <div class="flex items-start sm:items-center gap-space-sm min-w-0 w-full sm:w-auto">
+                    <span class="relative flex h-2.5 w-2.5 shrink-0 mt-1 sm:mt-0"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-container opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary-container"></span></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-space-sm min-w-0">
+                        <span class="text-on-surface font-semibold shrink-0">ACTIVE FOCUS:</span>
+                        <span class="text-secondary font-bold break-mobile leading-snug" id="hero-status-tag">{{ $heroStatusDefault }}</span>
+                    </div>
                 </div>
                 <div class="flex items-center gap-space-lg text-on-surface-variant">
-                    <span class="hidden sm:inline">EFFICIENCY → CONTROL → SCALE → GROWTH</span>
+                    <span class="hidden md:inline">EFFICIENCY → CONTROL → SCALE → GROWTH</span>
                 </div>
             </div>
         </div>

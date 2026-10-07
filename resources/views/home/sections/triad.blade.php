@@ -26,18 +26,18 @@
             <span class="font-label-caps text-label-caps uppercase tracking-widest text-secondary font-semibold mb-space-xs">{{ $eyebrow }}</span>
             <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface max-w-2xl font-semibold">{{ $heading }}</h2>
             <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-space-sm">{{ $intro }}</p>
-            <div class="flex flex-wrap items-center justify-center gap-space-sm mt-space-lg bg-surface-container p-1.5 rounded-xl shadow-inner" id="triad-tabs">
-                <button class="px-space-lg py-2.5 rounded-lg text-label-md font-label-md font-semibold transition-all bg-primary-container text-on-primary shadow-sm flex items-center gap-space-sm card-hover-elevate" id="btn-p1" onclick="switchTriad('p1')" type="button">
-                    <span class="material-symbols-outlined text-secondary-container text-[18px]">ads_click</span>
-                    <span>{{ $tab1 }}</span>
+            <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-1.5 sm:gap-space-sm mt-space-lg bg-surface-container p-1.5 rounded-xl shadow-inner w-full max-w-3xl" id="triad-tabs">
+                <button class="w-full sm:w-auto px-space-md sm:px-space-lg py-2.5 rounded-lg text-xs sm:text-label-md font-label-md font-semibold transition-all bg-primary-container text-on-primary shadow-sm flex items-center justify-center gap-space-sm card-hover-elevate" id="btn-p1" onclick="switchTriad('p1')" type="button">
+                    <span class="material-symbols-outlined text-secondary-container text-[18px] shrink-0">ads_click</span>
+                    <span class="text-center leading-snug">{{ $tab1 }}</span>
                 </button>
-                <button class="px-space-lg py-2.5 rounded-lg text-label-md font-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-space-sm card-hover-elevate" id="btn-p2" onclick="switchTriad('p2')" type="button">
-                    <span class="material-symbols-outlined text-[18px]">terminal</span>
-                    <span>{{ $tab2 }}</span>
+                <button class="w-full sm:w-auto px-space-md sm:px-space-lg py-2.5 rounded-lg text-xs sm:text-label-md font-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-space-sm card-hover-elevate" id="btn-p2" onclick="switchTriad('p2')" type="button">
+                    <span class="material-symbols-outlined text-[18px] shrink-0">terminal</span>
+                    <span class="text-center leading-snug">{{ $tab2 }}</span>
                 </button>
-                <button class="px-space-lg py-2.5 rounded-lg text-label-md font-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-space-sm card-hover-elevate" id="btn-p3" onclick="switchTriad('p3')" type="button">
-                    <span class="material-symbols-outlined text-[18px]">cached</span>
-                    <span>{{ $tab3 }}</span>
+                <button class="w-full sm:w-auto px-space-md sm:px-space-lg py-2.5 rounded-lg text-xs sm:text-label-md font-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-space-sm card-hover-elevate" id="btn-p3" onclick="switchTriad('p3')" type="button">
+                    <span class="material-symbols-outlined text-[18px] shrink-0">cached</span>
+                    <span class="text-center leading-snug">{{ $tab3 }}</span>
                 </button>
             </div>
         </div>
@@ -48,7 +48,7 @@
                         <span class="w-2 h-2 rounded-full bg-secondary-container beacon-pulse"></span>
                         <span class="font-label-caps text-label-caps uppercase text-secondary font-bold" id="triad-badge">{{ $badge }}</span>
                     </div>
-                    <h3 class="font-headline-lg text-headline-lg text-on-surface font-semibold leading-snug" id="triad-title">{{ $title }}</h3>
+                    <h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-semibold leading-snug" id="triad-title">{{ $title }}</h3>
                     <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed" id="triad-desc">{{ $desc }}</p>
                     <div class="grid grid-cols-2 gap-space-md pt-space-sm" id="triad-specs">
                         <div class="p-space-md rounded-xl bg-surface-container-low card-hover-elevate">
@@ -68,18 +68,18 @@
                     </div>
                 </div>
                 <div class="lg:col-span-5 rounded-xl bg-primary-container p-space-lg text-on-primary shadow-inner" id="triad-visual-panel">
-                    <div class="flex items-center justify-between pb-space-sm mb-space-md">
+                    <div class="flex flex-wrap items-center justify-between gap-2 pb-space-sm mb-space-md">
                         <span class="font-label-caps text-label-caps uppercase text-secondary-container font-semibold" id="triad-flow-label">{{ $flowLabel }}</span>
                         <span class="font-label-caps text-label-caps uppercase text-on-primary-container" id="triad-telemetry">{{ $telemetry }}</span>
                     </div>
                     <div class="space-y-space-sm" id="triad-flow-stages">
                         @foreach ($stages as $idx => $stage)
-                            <div class="p-space-sm rounded-lg {{ $idx === 2 ? 'bg-secondary-container/20' : 'bg-surface-container-high/10' }} flex items-center justify-between transition-all hover:bg-surface-container-high/20">
-                                <div class="flex items-center gap-space-sm">
-                                    <span class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center text-xs font-bold">{{ $stage['n'] }}</span>
-                                    <span class="font-title-md text-body-md text-on-primary {{ $idx === 2 ? 'font-semibold' : '' }}">{{ $stage['name'] }}</span>
+                            <div class="p-space-sm rounded-lg {{ $idx === 2 ? 'bg-secondary-container/20' : 'bg-surface-container-high/10' }} flex flex-col sm:flex-row sm:items-center justify-between gap-2 transition-all hover:bg-surface-container-high/20">
+                                <div class="flex items-center gap-space-sm min-w-0">
+                                    <span class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center text-xs font-bold shrink-0">{{ $stage['n'] }}</span>
+                                    <span class="font-title-md text-sm sm:text-body-md text-on-primary leading-snug {{ $idx === 2 ? 'font-semibold' : '' }}">{{ $stage['name'] }}</span>
                                 </div>
-                                <span class="font-label-caps text-label-caps {{ $idx === 2 ? 'text-secondary-container font-bold' : 'text-secondary-fixed' }}">{{ $stage['val'] }}</span>
+                                <span class="font-label-caps text-label-caps shrink-0 pl-8 sm:pl-0 {{ $idx === 2 ? 'text-secondary-container font-bold' : 'text-secondary-fixed' }}">{{ $stage['val'] }}</span>
                             </div>
                         @endforeach
                     </div>

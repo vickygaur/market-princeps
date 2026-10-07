@@ -29,9 +29,9 @@
                         <h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs font-semibold">{{ $step['title'] }}</h4>
                         <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">{{ $step['body'] }}</p>
                     </div>
-                    <div class="mt-space-lg pt-space-sm flex items-center gap-space-xs text-secondary font-label-caps text-label-caps uppercase font-semibold">
-                        <span class="material-symbols-outlined text-[16px]">{{ $step['icon'] ?? 'check' }}</span>
-                        <span>{{ $step['footer'] ?? '' }}</span>
+                    <div class="mt-space-lg pt-space-sm flex items-start gap-space-xs text-secondary font-label-caps text-label-caps uppercase font-semibold">
+                        <span class="material-symbols-outlined text-[16px] shrink-0">{{ $step['icon'] ?? 'check' }}</span>
+                        <span class="leading-snug">{{ $step['footer'] ?? '' }}</span>
                     </div>
                 </div>
             @endforeach

@@ -71,10 +71,10 @@
             </a>
         </div>
         <div class="w-full max-w-2xl mx-auto text-center mb-8">
-            <div class="inline-flex items-center gap-space-xs text-secondary font-label-caps text-label-caps uppercase tracking-widest font-semibold">
-                <span class="w-2 h-0.5 bg-secondary"></span>
-                <span>{{ $shapedLabel }}</span>
-                <span class="w-2 h-0.5 bg-secondary"></span>
+            <div class="inline-flex items-center justify-center gap-space-xs text-secondary font-label-caps text-label-caps uppercase tracking-widest font-semibold px-1">
+                <span class="w-2 h-0.5 bg-secondary shrink-0 hidden sm:block"></span>
+                <span class="leading-snug text-center">{{ $shapedLabel }}</span>
+                <span class="w-2 h-0.5 bg-secondary shrink-0 hidden sm:block"></span>
             </div>
             <p class="mt-2 font-body-md text-body-md text-on-surface-variant leading-relaxed">{{ $shapedText }}</p>
         </div>

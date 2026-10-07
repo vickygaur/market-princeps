@@ -14,6 +14,7 @@
     $disclaimer = data_get($content, 'intake.disclaimer', 'Protected by strict non-disclosure protocols. We never share enterprise business information.');
     $helpCategory = data_get($content, 'intake.help_category', 'marketing');
     $source = 'service:'.$service->slug;
+    $styles = data_get($content, 'intake.styles', []);
 @endphp
 <section class="w-full px-6 md:px-margin py-16 md:py-24 bg-surface" id="intakeTerminal">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 items-start">
@@ -21,18 +22,18 @@
             <div class="space-y-3">
                 <div class="font-semibold text-xs tracking-wider text-amber-700 bg-amber-50/80 px-3 py-1 rounded-full border border-amber-200/50 inline-flex items-center gap-2">
                     <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                    <span class="font-label-caps uppercase tracking-widest font-bold">{{ $badge }}</span>
+                    <span class="font-label-caps uppercase tracking-widest font-bold"{!! content_style_attrs(data_get($styles, 'badge')) !!}>{{ $badge }}</span>
                 </div>
-                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-slate-900 font-bold tracking-tight">{{ $heading }}</h2>
-                <p class="font-body-md text-slate-600 text-sm md:text-base leading-relaxed">{{ $intro }}</p>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-slate-900 font-bold tracking-tight"{!! content_style_attrs(data_get($styles, 'heading')) !!}>{{ $heading }}</h2>
+                <p class="font-body-md text-slate-600 text-sm md:text-base leading-relaxed"{!! content_style_attrs(data_get($styles, 'intro')) !!}>{{ $intro }}</p>
             </div>
             <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-high space-y-3">
-                <div class="font-label-caps text-xs uppercase tracking-wider text-primary font-bold">{{ $protocolTitle }}</div>
+                <div class="font-label-caps text-xs uppercase tracking-wider text-primary font-bold"{!! content_style_attrs(data_get($styles, 'protocol_title')) !!}>{{ $protocolTitle }}</div>
                 <div class="space-y-2 text-xs text-slate-600 leading-relaxed font-body-md">
                     @foreach ($protocolSteps as $index => $step)
                         <div class="flex items-start gap-2.5">
                             <span class="text-secondary font-bold">{{ str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}.</span>
-                            <span><strong>{{ $step['title'] ?? '' }}:</strong> {{ $step['body'] ?? '' }}</span>
+                            <span><strong{!! content_style_attrs(data_get($styles, 'protocol_step_title')) !!}>{{ $step['title'] ?? '' }}:</strong> <span{!! content_style_attrs(data_get($styles, 'protocol_step_body')) !!}>{{ $step['body'] ?? '' }}</span></span>
                         </div>
                     @endforeach
                 </div>

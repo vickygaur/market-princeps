@@ -13,7 +13,7 @@
 @endphp
 <section class="w-full bg-surface-container-low py-space-xl px-margin-mobile md:px-margin" id="cta-section">
     <div class="max-w-6xl mx-auto">
-        <div class="py-16 px-8 lg:p-20 rounded-3xl bg-primary-container text-on-primary shadow-2xl relative overflow-hidden flex flex-col items-center text-center border border-outline-variant/20 max-w-5xl mx-auto reveal-init">
+        <div class="py-10 px-5 sm:py-16 sm:px-8 lg:p-20 rounded-2xl sm:rounded-3xl bg-primary-container text-on-primary shadow-2xl relative overflow-hidden flex flex-col items-center text-center border border-outline-variant/20 max-w-5xl mx-auto reveal-init">
             <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
             <div class="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 bg-secondary-container/15 rounded-full blur-3xl"></div>
             <div class="relative z-10 max-w-3xl flex flex-col items-center">
