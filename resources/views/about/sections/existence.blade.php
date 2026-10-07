@@ -14,15 +14,15 @@
     <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div class="lg:col-span-6 relative group reveal-init flex flex-col justify-center my-auto">
-                <div class="relative rounded-2xl overflow-hidden shadow-xl bg-primary-container border border-outline-variant/20 h-[520px]">
+                <div class="relative rounded-2xl overflow-hidden shadow-xl bg-primary-container border border-outline-variant/20 h-[280px] sm:h-[380px] lg:h-[520px]">
                     <img class="w-full h-full object-cover opacity-95 transition-transform duration-700 ease-out group-hover:scale-105" alt="{{ $imageAlt }}" src="{{ $imageUrl }}">
                     <div class="absolute inset-0 bg-gradient-to-t from-primary-container/80 via-transparent to-transparent pointer-events-none"></div>
                 </div>
             </div>
             <div class="lg:col-span-6 flex flex-col space-y-space-md reveal-init delay-200">
-                <div class="inline-flex items-center gap-space-xs text-secondary font-label-caps text-label-caps uppercase tracking-widest font-semibold">
-                    <span class="w-2 h-0.5 bg-secondary"></span>
-                    <span>{{ $eyebrow }}</span>
+                <div class="inline-flex items-start sm:items-center gap-space-xs text-secondary font-label-caps text-label-caps uppercase tracking-widest font-semibold max-w-full">
+                    <span class="w-2 h-0.5 bg-secondary shrink-0 mt-2 sm:mt-0"></span>
+                    <span class="leading-snug break-mobile">{{ $eyebrow }}</span>
                 </div>
                 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-semibold tracking-tight">{{ $title }}</h2>
                 @foreach ($paragraphs as $paragraph)

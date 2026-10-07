@@ -45,9 +45,9 @@
                 <span class="font-label-caps text-label-caps uppercase text-secondary font-semibold tracking-wider">Connect With Us</span>
                 <div class="flex flex-col gap-space-sm">
                     @if ($contactEmail)
-                        <a class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="mailto:{{ $contactEmail }}">
-                            <span class="material-symbols-outlined text-[18px] text-secondary">mail</span>
-                            <span>{{ $contactEmail }}</span>
+                        <a class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors min-w-0" href="mailto:{{ $contactEmail }}">
+                            <span class="material-symbols-outlined text-[18px] text-secondary shrink-0">mail</span>
+                            <span class="break-all">{{ $contactEmail }}</span>
                         </a>
                     @endif
                     @if ($contactPhone)
@@ -70,15 +70,15 @@
                 </div>
             </div>
         </div>
-        <div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md">
+        <div class="pt-space-lg flex flex-col lg:flex-row items-center justify-between gap-space-md text-center lg:text-left">
             <p class="font-body-sm text-body-sm text-on-surface-variant">© {{ date('Y') }} {{ $brandName }} Pvt. Ltd. All rights reserved.</p>
-            <div class="flex flex-wrap items-center gap-space-md font-body-sm text-body-sm text-on-surface-variant">
+            <div class="flex flex-wrap items-center justify-center gap-space-md font-body-sm text-body-sm text-on-surface-variant">
                 <a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a>
                 <span class="opacity-70">·</span>
                 <a class="hover:text-secondary transition-colors" href="#">Terms of Service</a>
             </div>
-            <div class="flex items-center gap-space-lg">
-                <a class="font-label-caps text-label-caps uppercase text-secondary hover:text-secondary-container transition-colors font-semibold" href="{{ route('contact') }}">LET'S TALK ABOUT YOUR BUSINESS</a>
+            <div class="flex items-center justify-center">
+                <a class="font-label-caps text-label-caps uppercase text-secondary hover:text-secondary-container transition-colors font-semibold text-center leading-snug" href="{{ route('contact') }}">LET'S TALK ABOUT YOUR BUSINESS</a>
             </div>
         </div>
     </div>

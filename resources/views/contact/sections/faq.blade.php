@@ -27,9 +27,9 @@
 @endphp
 <section class="w-full px-gutter md:px-margin py-space-xl bg-surface-container-low/60">
     <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-space-xl">
-            <span class="font-label-caps text-label-caps uppercase tracking-[0.18em] text-secondary font-bold">{{ $eyebrow }}</span>
-            <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold mt-space-xs">
+        <div class="text-center mb-space-xl px-1">
+            <span class="font-label-caps text-label-caps uppercase tracking-wider sm:tracking-[0.18em] text-secondary font-bold leading-snug">{{ $eyebrow }}</span>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary tracking-tight font-bold mt-space-xs">
                 {{ $title }}
             </h2>
         </div>
@@ -38,9 +38,9 @@
                 @php
                     $isOpen = (bool) data_get($item, 'open', false);
                 @endphp
-                <div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm transition-all">
-                    <button class="w-full flex items-center justify-between text-left gap-space-md" onclick="toggleAccordion(this)" type="button" aria-expanded="{{ $isOpen ? 'true' : 'false' }}">
-                        <span class="font-headline-sm text-headline-sm text-primary font-semibold">{{ data_get($item, 'question') }}</span>
+                <div class="rounded-xl bg-surface-container-lowest p-space-md sm:p-space-lg shadow-sm transition-all">
+                    <button class="w-full flex items-start sm:items-center justify-between text-left gap-space-md" onclick="toggleAccordion(this)" type="button" aria-expanded="{{ $isOpen ? 'true' : 'false' }}">
+                        <span class="font-headline-sm text-base sm:text-headline-sm text-primary font-semibold leading-snug">{{ data_get($item, 'question') }}</span>
                         <div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center shrink-0 transition-transform duration-300">
                             <span class="material-symbols-outlined text-primary text-[20px]">{{ $isOpen ? 'expand_less' : 'expand_more' }}</span>
                         </div>

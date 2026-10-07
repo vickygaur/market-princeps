@@ -48,14 +48,14 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
             @foreach ($pillars as $index => $pillar)
-                <div class="flex flex-col justify-between h-full p-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-md transition-all duration-300 reveal-init {{ $delayClasses[$index] ?? 'delay-100' }}">
+                <div class="flex flex-col justify-between h-full p-5 sm:p-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-md transition-all duration-300 reveal-init {{ $delayClasses[$index] ?? 'delay-100' }}">
                     <div class="flex flex-col flex-grow">
                         <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-secondary-container/15 text-secondary mb-6 flex-shrink-0">
                             <span class="material-symbols-outlined text-[24px]">{{ data_get($pillar, 'icon') }}</span>
                         </div>
-                        <h3 class="min-h-[3rem] flex items-center text-xl font-bold text-on-surface leading-snug">{{ data_get($pillar, 'title') }}</h3>
+                        <h3 class="md:min-h-[3rem] flex items-center text-xl font-bold text-on-surface leading-snug">{{ data_get($pillar, 'title') }}</h3>
                         <div class="my-4 inline-flex items-center px-3 py-1 rounded-md text-xs font-semibold tracking-wide border border-outline-variant/30 bg-surface-container-low text-secondary self-start min-h-[26px]">{{ data_get($pillar, 'badge') }}</div>
-                        <p class="text-sm leading-relaxed text-on-surface-variant mb-6 min-h-[4.5rem]">{{ data_get($pillar, 'description') }}</p>
+                        <p class="text-sm leading-relaxed text-on-surface-variant mb-6 md:min-h-[4.5rem]">{{ data_get($pillar, 'description') }}</p>
                         <div class="space-y-3 py-6 border-t border-outline-variant/20 flex-grow">
                             @foreach (data_get($pillar, 'points', []) as $point)
                                 <div class="flex items-center gap-2.5 text-xs text-on-surface font-medium">

@@ -70,7 +70,7 @@
   {{ $name }}: {!! $value !!};
 @endforeach
 }
-@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;font-family:var(--font-body);line-height:var(--leading-base);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}
+@layer base{html,body{margin:0;padding:0;overflow-x:hidden;max-width:100%;}body{overscroll-behavior:none;font-family:var(--font-body);line-height:var(--leading-base);}main{overflow-x:hidden;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}img,video{max-width:100%;height:auto;}svg:not([class*="w-"]){max-width:100%;}@media (max-width:639px){.break-mobile{overflow-wrap:anywhere;word-break:break-word;}}}
 ::-webkit-scrollbar{display:none;}
 
 @keyframes conduitFlow {

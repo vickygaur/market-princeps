@@ -22,9 +22,9 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
             <div class="lg:col-span-7 bg-surface-container-lowest p-space-lg md:p-space-xl rounded-2xl shadow-md flex flex-col gap-space-lg border border-outline-variant/30">
                 <div>
-                    <div class="flex items-center justify-between mb-space-xs">
-                        <label class="font-title-md text-title-md text-on-surface" for="employees-range">RELEVANT TEAM SIZE</label>
-                        <span class="font-title-md text-title-md text-secondary font-bold transition-all" id="employees-display">{{ $defaultEmployees }} team members</span>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-space-xs">
+                        <label class="font-title-md text-sm sm:text-title-md text-on-surface" for="employees-range">RELEVANT TEAM SIZE</label>
+                        <span class="font-title-md text-sm sm:text-title-md text-secondary font-bold transition-all shrink-0" id="employees-display">{{ $defaultEmployees }} team members</span>
                     </div>
                     <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">How many skilled team members are involved in manual tasks?</p>
                     <div class="relative flex items-center">
@@ -32,33 +32,33 @@
                     </div>
                 </div>
                 <div>
-                    <div class="flex items-center justify-between mb-space-xs">
-                        <label class="font-title-md text-title-md text-on-surface" for="spend-range">MANUAL WORK</label>
-                        <span class="font-title-md text-title-md text-secondary font-bold transition-all" id="spend-display">{{ $defaultManual }}%</span>
+                    <div class="flex items-center justify-between gap-2 mb-space-xs">
+                        <label class="font-title-md text-sm sm:text-title-md text-on-surface" for="spend-range">MANUAL WORK</label>
+                        <span class="font-title-md text-sm sm:text-title-md text-secondary font-bold transition-all shrink-0" id="spend-display">{{ $defaultManual }}%</span>
                     </div>
                     <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">How much of your team's time goes into manual work?</p>
                     <input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-secondary transition-all" id="spend-range" max="100" min="0" onchange="syncManualToRevenue(this.value)" oninput="syncManualToRevenue(this.value)" step="5" type="range" value="{{ $defaultManual }}">
                 </div>
                 <div>
-                    <div class="flex items-center justify-between mb-space-xs">
-                        <label class="font-title-md text-title-md text-on-surface" for="tools-range">REVENUE-FOCUSED WORK</label>
-                        <span class="font-title-md text-title-md text-secondary font-bold transition-all" id="tools-display">{{ $defaultRevenueWork }}%</span>
+                    <div class="flex items-center justify-between gap-2 mb-space-xs">
+                        <label class="font-title-md text-sm sm:text-title-md text-on-surface min-w-0" for="tools-range">REVENUE-FOCUSED WORK</label>
+                        <span class="font-title-md text-sm sm:text-title-md text-secondary font-bold transition-all shrink-0" id="tools-display">{{ $defaultRevenueWork }}%</span>
                     </div>
                     <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">How much of their time goes toward work that directly supports revenue and growth?</p>
                     <input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-secondary transition-all" id="tools-range" max="100" min="0" onchange="syncRevenueToManual(this.value)" oninput="syncRevenueToManual(this.value)" step="5" type="range" value="{{ $defaultRevenueWork }}">
                 </div>
                 <div>
-                    <div class="flex items-center justify-between mb-space-xs">
-                        <label class="font-title-md text-title-md text-on-surface" for="team-range">AVERAGE RESOURCE COST</label>
-                        <span class="font-title-md text-title-md text-secondary font-bold transition-all" id="team-display">₹{{ number_format($defaultSalary, 0, '.', ',') }}</span>
+                    <div class="flex items-center justify-between gap-2 mb-space-xs">
+                        <label class="font-title-md text-sm sm:text-title-md text-on-surface min-w-0" for="team-range">AVERAGE RESOURCE COST</label>
+                        <span class="font-title-md text-sm sm:text-title-md text-secondary font-bold transition-all shrink-0" id="team-display">₹{{ number_format($defaultSalary, 0, '.', ',') }}</span>
                     </div>
                     <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">What is the average monthly salary of these team members?</p>
                     <input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-secondary transition-all" id="team-range" max="300000" min="10000" onchange="calculateSimulator()" oninput="calculateSimulator()" step="5000" type="range" value="{{ $defaultSalary }}">
                 </div>
                 <div class="pt-space-xs border-t border-outline-variant/20">
-                    <div class="flex items-center justify-between mb-space-xs">
-                        <label class="font-title-md text-title-md text-on-surface" for="revenue-input">MONTHLY REVENUE</label>
-                        <span class="font-title-md text-title-md text-secondary font-bold transition-all" id="revenue-display">₹{{ number_format($defaultRevenue, 0, '.', ',') }} / mo</span>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-space-xs">
+                        <label class="font-title-md text-sm sm:text-title-md text-on-surface" for="revenue-input">MONTHLY REVENUE</label>
+                        <span class="font-title-md text-sm sm:text-title-md text-secondary font-bold transition-all shrink-0" id="revenue-display">₹{{ number_format($defaultRevenue, 0, '.', ',') }} / mo</span>
                     </div>
                     <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">What is your average monthly business revenue?</p>
                     <div class="relative flex items-center">
@@ -70,9 +70,9 @@
             <div class="lg:col-span-5 bg-primary-container text-on-primary p-space-lg md:p-space-xl rounded-2xl shadow-xl flex flex-col justify-between card-hover-elevate relative overflow-hidden">
                 <div>
                     <div class="pb-space-sm mb-space-md">
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="font-label-caps text-label-caps uppercase text-secondary-container font-semibold tracking-wider">{{ $outputTitle }}</span>
-                            <span class="w-2.5 h-2.5 rounded-full bg-secondary-container beacon-pulse"></span>
+                        <div class="flex items-start justify-between gap-2 mb-1">
+                            <span class="font-label-caps text-label-caps uppercase text-secondary-container font-semibold tracking-wider leading-snug break-mobile">{{ $outputTitle }}</span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-secondary-container beacon-pulse shrink-0 mt-1"></span>
                         </div>
                         <p class="font-body-sm text-body-sm text-on-primary-container leading-relaxed">{{ $outputDesc }}</p>
                     </div>

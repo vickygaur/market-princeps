@@ -10,40 +10,41 @@
     $pillarsCtaUrl = filled(data_get($content, 'pillars.cta_url'))
         ? data_get($content, 'pillars.cta_url')
         : '#intakeTerminal';
+    $styles = data_get($content, 'pillars.styles', []);
 @endphp
 <section class="w-full px-6 md:px-margin py-16 md:py-24" id="four-pillars">
     <div class="max-w-7xl mx-auto flex flex-col gap-10 md:gap-14">
         <div class="text-center max-w-2xl mx-auto space-y-3">
             <div class="font-semibold text-xs tracking-wider text-amber-700 bg-amber-50/80 px-3 py-1 rounded-full border border-amber-200/50 inline-flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                <span class="font-label-caps uppercase tracking-widest font-bold">{{ $badge }}</span>
+                <span class="font-label-caps uppercase tracking-widest font-bold"{!! content_style_attrs(data_get($styles, 'badge')) !!}>{{ $badge }}</span>
             </div>
-            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-slate-900 font-bold tracking-tight">{{ $heading }}</h2>
-            <p class="font-body-md text-slate-600 text-sm md:text-base leading-relaxed">{{ $intro }}</p>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-slate-900 font-bold tracking-tight"{!! content_style_attrs(data_get($styles, 'heading')) !!}>{{ $heading }}</h2>
+            <p class="font-body-md text-slate-600 text-sm md:text-base leading-relaxed"{!! content_style_attrs(data_get($styles, 'intro')) !!}>{{ $intro }}</p>
         </div>
 
         @if ($hasPillars)
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4" id="pillar-tab-nav">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 md:gap-4" id="pillar-tab-nav">
                 @foreach ($items as $index => $pillar)
                     @php
                         $targetId = $pillar['id'] ?? 'pillar-'.($index + 1);
                         $isActive = $index === 0;
                     @endphp
                     <button
-                        class="pillar-btn p-4 md:p-5 rounded-2xl text-left transition-all duration-200 cursor-pointer border group {{ $isActive ? 'shadow-md border-primary-container bg-primary-container text-on-primary' : 'bg-surface-container-low hover:bg-surface-container text-on-surface border-outline-variant/30' }}"
+                        class="pillar-btn p-3.5 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl text-left transition-all duration-200 cursor-pointer border group {{ $isActive ? 'shadow-md border-primary-container bg-primary-container text-on-primary' : 'bg-surface-container-low hover:bg-surface-container text-on-surface border-outline-variant/30' }}"
                         data-target="{{ $targetId }}"
                         type="button"
                         @if ($isActive) aria-current="true" @endif
                     >
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="pillar-badge text-[11px] font-mono uppercase font-bold tracking-wider {{ $isActive ? 'text-secondary-container' : 'text-secondary' }}">PILLAR {{ $pillar['number'] ?? str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}</span>
-                            <span class="material-symbols-outlined text-[18px] transition-transform group-hover:scale-110 {{ $isActive ? 'text-secondary-container' : 'text-secondary' }}">{{ $pillar['icon'] ?? 'layers' }}</span>
+                        <div class="flex items-center justify-between mb-2 gap-2">
+                            <span class="pillar-badge text-[10px] sm:text-[11px] font-mono uppercase font-bold tracking-wider {{ $isActive ? 'text-secondary-container' : 'text-secondary' }}">PILLAR {{ $pillar['number'] ?? str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}</span>
+                            <span class="material-symbols-outlined text-[18px] transition-transform group-hover:scale-110 shrink-0 {{ $isActive ? 'text-secondary-container' : 'text-secondary' }}">{{ $pillar['icon'] ?? 'layers' }}</span>
                         </div>
-                        <div class="font-title-md text-sm md:text-base font-bold">{{ $pillar['tab_title'] ?? $pillar['title'] ?? 'Pillar' }}</div>
+                        <div class="font-title-md text-sm md:text-base font-bold leading-snug"{!! content_style_attrs(data_get($styles, 'tab_title')) !!}>{{ $pillar['tab_title'] ?? $pillar['title'] ?? 'Pillar' }}</div>
                     </button>
                 @endforeach
             </div>
-            <div class="rounded-2xl bg-surface-container-lowest p-6 md:p-10 shadow-sm border border-outline-variant/30 min-h-[360px]" id="pillar-display-card">
+            <div class="rounded-2xl bg-surface-container-lowest p-4 sm:p-6 md:p-10 shadow-sm border border-outline-variant/30 min-h-0 sm:min-h-[360px]" id="pillar-display-card">
                 <div class="flex items-center justify-between pb-4 mb-4 border-b border-surface-container">
                     <div class="flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-secondary"></span>
@@ -63,8 +64,8 @@
                             @endif
                         </div>
                         <div class="space-y-3">
-                            <h3 class="font-headline-md text-headline-md font-bold text-slate-900 tracking-tight">{{ $pillar['title'] ?? '' }}</h3>
-                            <p class="font-body-md text-slate-600 leading-relaxed text-base md:text-lg max-w-3xl">{{ $pillar['body'] ?? '' }}</p>
+                            <h3 class="font-headline-md text-headline-md font-bold text-slate-900 tracking-tight"{!! content_style_attrs(data_get($styles, 'title')) !!}>{{ $pillar['title'] ?? '' }}</h3>
+                            <p class="font-body-md text-slate-600 leading-relaxed text-base md:text-lg max-w-3xl"{!! content_style_attrs(data_get($styles, 'body')) !!}>{{ $pillar['body'] ?? '' }}</p>
                         </div>
                         @if (! empty($pillar['features']))
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -72,8 +73,8 @@
                                     <div class="p-4 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 flex items-start gap-3 transition-all hover:bg-surface-container-lowest hover:border-secondary/50 hover:shadow-sm">
                                         <div class="w-6 h-6 rounded-md bg-secondary-container/20 text-secondary flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</div>
                                         <div class="space-y-1">
-                                            <div class="font-title-md text-sm font-bold text-slate-900">{{ $feature['title'] ?? '' }}</div>
-                                            <p class="font-body-sm text-xs text-slate-600 leading-relaxed">{{ $feature['description'] ?? $feature['body'] ?? '' }}</p>
+                                            <div class="font-title-md text-sm font-bold text-slate-900"{!! content_style_attrs(data_get($styles, 'feature_title')) !!}>{{ $feature['title'] ?? '' }}</div>
+                                            <p class="font-body-sm text-xs text-slate-600 leading-relaxed"{!! content_style_attrs(data_get($styles, 'feature_body')) !!}>{{ $feature['description'] ?? $feature['body'] ?? '' }}</p>
                                         </div>
                                     </div>
                                 @endforeach

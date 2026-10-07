@@ -62,10 +62,10 @@
                 </ul>
             </div>
         </div>
-        <div class="mt-space-xl flex justify-center">
-            <a class="inline-flex items-center justify-center gap-space-sm px-space-xl py-3.5 rounded-xl bg-primary-container text-on-primary font-title-md text-title-md tracking-wider uppercase transition-all transform hover:-translate-y-0.5 shadow-lg hover:shadow-[0_12px_28px_rgba(22,27,51,0.35)] shimmer-sweep-btn" href="#intake">
-                <span>{{ $ctaLabel }}</span>
-                <span class="material-symbols-outlined text-secondary-container text-lg">arrow_forward</span>
+        <div class="mt-space-xl flex justify-center px-0">
+            <a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-sm px-space-lg sm:px-space-xl py-3.5 rounded-xl bg-primary-container text-on-primary font-title-md text-sm sm:text-title-md tracking-wider uppercase transition-all transform hover:-translate-y-0.5 shadow-lg hover:shadow-[0_12px_28px_rgba(22,27,51,0.35)] shimmer-sweep-btn text-center" href="#intake">
+                <span class="leading-snug">{{ $ctaLabel }}</span>
+                <span class="material-symbols-outlined text-secondary-container text-lg shrink-0">arrow_forward</span>
             </a>
         </div>
     </div>

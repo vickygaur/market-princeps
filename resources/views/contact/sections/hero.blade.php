@@ -13,21 +13,21 @@
 <section class="relative w-full px-gutter md:px-margin pt-space-xl pb-space-xl overflow-hidden bg-gradient-to-b from-surface-container-low/80 via-surface to-surface">
     <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[720px] h-[340px] bg-gradient-to-tr from-secondary/10 via-secondary-container/15 to-transparent blur-3xl pointer-events-none rounded-full"></div>
     <div class="relative max-w-5xl mx-auto flex flex-col items-center text-center">
-        <div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-lowest shadow-sm mb-space-lg">
-            <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-            <span class="font-label-caps text-label-caps uppercase tracking-[0.16em] text-secondary font-bold">{{ $badge }}</span>
+        <div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-lowest shadow-sm mb-space-lg max-w-full">
+            <span class="w-2 h-2 rounded-full bg-secondary animate-pulse shrink-0"></span>
+            <span class="font-label-caps text-label-caps uppercase tracking-wider sm:tracking-[0.16em] text-secondary font-bold leading-snug text-center">{{ $badge }}</span>
         </div>
-        <h1 class="font-display-hero text-display-hero text-primary-container font-bold max-w-4xl tracking-tight mb-space-md">
+        <h1 class="font-display-hero text-display-hero-mobile md:text-display-hero text-primary-container font-bold max-w-4xl tracking-tight mb-space-md">
             {{ $titlePrefix }} <span class="gold-shimmer-text font-bold">{{ $titleShimmer }}</span>
         </h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-space-xl leading-relaxed">
+        <p class="font-body-lg text-body-md sm:text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-space-xl leading-relaxed">
             {{ $body }}
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md w-full max-w-3xl">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm sm:gap-space-md w-full max-w-3xl">
             @foreach ($trustMarkers as $marker)
                 <div class="flex items-center justify-center gap-space-xs p-space-sm rounded-lg bg-surface-container-lowest shadow-sm">
-                    <span class="material-symbols-outlined text-secondary text-[20px]">{{ data_get($marker, 'icon', 'check') }}</span>
-                    <span class="font-label-md text-label-md text-primary font-semibold">{{ data_get($marker, 'label') }}</span>
+                    <span class="material-symbols-outlined text-secondary text-[20px] shrink-0">{{ data_get($marker, 'icon', 'check') }}</span>
+                    <span class="font-label-md text-label-md text-primary font-semibold text-center leading-snug">{{ data_get($marker, 'label') }}</span>
                 </div>
             @endforeach
         </div>

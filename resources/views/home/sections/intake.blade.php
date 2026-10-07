@@ -48,27 +48,27 @@
                         <label class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider font-semibold">WHAT CAN WE HELP YOU WITH? <span class="text-secondary font-medium tracking-normal text-xs">(SELECT ONE)</span></label>
                         <div class="flex flex-col gap-2">
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 w-full">
-                                <label class="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 cursor-pointer shadow-sm hover:border-secondary transition-all text-center h-10">
-                                    <input checked class="w-3.5 h-3.5 text-primary focus:ring-secondary accent-secondary flex-shrink-0" name="help_category" type="radio" value="marketing">
-                                    <span class="font-body-sm text-xs text-on-surface font-medium whitespace-nowrap">Marketing &amp; Demand</span>
+                                <label class="flex items-center justify-center gap-1.5 px-2.5 sm:px-3 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 cursor-pointer shadow-sm hover:border-secondary transition-all text-center min-h-10">
+                                    <input checked class="w-3.5 h-3.5 text-primary focus:ring-secondary accent-secondary shrink-0" name="help_category" type="radio" value="marketing">
+                                    <span class="font-body-sm text-xs text-on-surface font-medium leading-snug">Marketing &amp; Demand</span>
                                 </label>
-                                <label class="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 cursor-pointer shadow-sm hover:border-secondary transition-all text-center h-10">
-                                    <input class="w-3.5 h-3.5 text-primary focus:ring-secondary accent-secondary flex-shrink-0" name="help_category" type="radio" value="technology">
-                                    <span class="font-body-sm text-xs text-on-surface font-medium whitespace-nowrap">Custom Technology</span>
+                                <label class="flex items-center justify-center gap-1.5 px-2.5 sm:px-3 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 cursor-pointer shadow-sm hover:border-secondary transition-all text-center min-h-10">
+                                    <input class="w-3.5 h-3.5 text-primary focus:ring-secondary accent-secondary shrink-0" name="help_category" type="radio" value="technology">
+                                    <span class="font-body-sm text-xs text-on-surface font-medium leading-snug">Custom Technology</span>
                                 </label>
-                                <label class="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 cursor-pointer shadow-sm hover:border-secondary transition-all text-center h-10">
-                                    <input class="w-3.5 h-3.5 text-primary focus:ring-secondary accent-secondary flex-shrink-0" name="help_category" type="radio" value="optimization">
-                                    <span class="font-body-sm text-xs text-on-surface font-medium whitespace-nowrap">Business Optimization</span>
+                                <label class="flex items-center justify-center gap-1.5 px-2.5 sm:px-3 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 cursor-pointer shadow-sm hover:border-secondary transition-all text-center min-h-10">
+                                    <input class="w-3.5 h-3.5 text-primary focus:ring-secondary accent-secondary shrink-0" name="help_category" type="radio" value="optimization">
+                                    <span class="font-body-sm text-xs text-on-surface font-medium leading-snug">Business Optimization</span>
                                 </label>
                             </div>
-                            <div class="flex flex-col sm:flex-row justify-center items-center gap-2 w-full">
-                                <label class="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 cursor-pointer shadow-sm hover:border-secondary transition-all text-center h-10 w-full sm:w-[32.6%]">
-                                    <input class="w-3.5 h-3.5 text-primary focus:ring-secondary accent-secondary flex-shrink-0" name="help_category" type="radio" value="combination">
-                                    <span class="font-body-sm text-xs text-on-surface font-medium whitespace-nowrap">A combination of all</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full sm:max-w-[66%] sm:mx-auto">
+                                <label class="flex items-center justify-center gap-1.5 px-2.5 sm:px-3 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 cursor-pointer shadow-sm hover:border-secondary transition-all text-center min-h-10 w-full">
+                                    <input class="w-3.5 h-3.5 text-primary focus:ring-secondary accent-secondary shrink-0" name="help_category" type="radio" value="combination">
+                                    <span class="font-body-sm text-xs text-on-surface font-medium leading-snug">A combination of all</span>
                                 </label>
-                                <label class="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 cursor-pointer shadow-sm hover:border-secondary transition-all text-center h-10 w-full sm:w-[32.6%]">
-                                    <input class="w-3.5 h-3.5 text-primary focus:ring-secondary accent-secondary flex-shrink-0" name="help_category" type="radio" value="need_help">
-                                    <span class="font-body-sm text-xs text-on-surface font-medium whitespace-nowrap">Not sure need guidance</span>
+                                <label class="flex items-center justify-center gap-1.5 px-2.5 sm:px-3 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 cursor-pointer shadow-sm hover:border-secondary transition-all text-center min-h-10 w-full">
+                                    <input class="w-3.5 h-3.5 text-primary focus:ring-secondary accent-secondary shrink-0" name="help_category" type="radio" value="need_help">
+                                    <span class="font-body-sm text-xs text-on-surface font-medium leading-snug">Not sure need guidance</span>
                                 </label>
                             </div>
                         </div>
@@ -91,9 +91,9 @@
                         <label class="font-label-caps text-label-caps uppercase text-on-surface-variant block mb-space-xs font-semibold" for="notes">MESSAGE / RELEVANT DETAILS</label>
                         <textarea class="w-full px-space-md py-3 rounded-lg bg-surface-container-lowest border border-outline-variant/30 text-on-surface font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary" id="notes" name="message" placeholder="Tell us what you're trying to improve, fix or grow." rows="3"></textarea>
                     </div>
-                    <button class="w-full py-4 rounded-xl bg-primary-container text-on-primary font-title-md text-title-md uppercase tracking-wider font-semibold transition-all hover:bg-primary-fixed-dim hover:text-on-primary-fixed shadow-lg flex items-center justify-center gap-space-sm shimmer-sweep-btn" id="btn-submit-audit" type="submit">
-                        <span id="btn-submit-audit-label">{{ $submitLabel }}</span>
-                        <span class="material-symbols-outlined text-secondary-container text-lg">check_circle</span>
+                    <button class="w-full py-4 rounded-xl bg-primary-container text-on-primary font-title-md text-sm sm:text-title-md uppercase tracking-wider font-semibold transition-all hover:bg-primary-fixed-dim hover:text-on-primary-fixed shadow-lg flex items-center justify-center gap-space-sm shimmer-sweep-btn text-center" id="btn-submit-audit" type="submit">
+                        <span id="btn-submit-audit-label" class="leading-snug">{{ $submitLabel }}</span>
+                        <span class="material-symbols-outlined text-secondary-container text-lg shrink-0">check_circle</span>
                     </button>
                     <div class="hidden text-center p-space-sm rounded bg-surface-container text-secondary font-label-caps text-label-caps uppercase font-bold" id="form-feedback" data-success-message="{{ $successMessage }}"></div>
                     <div class="hidden text-center p-space-sm rounded bg-error-container text-on-error-container font-body-sm text-body-sm" id="form-error"></div>

@@ -23,9 +23,9 @@
     <div class="max-w-7xl mx-auto relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <div class="lg:col-span-7 flex flex-col space-y-space-md reveal-init">
-                <div class="inline-flex items-center gap-space-xs text-secondary font-label-caps text-label-caps uppercase tracking-widest font-semibold">
-                    <span class="w-2 h-0.5 bg-secondary"></span>
-                    <span>{{ $eyebrow }}</span>
+                <div class="inline-flex items-start sm:items-center gap-space-xs text-secondary font-label-caps text-label-caps uppercase tracking-widest font-semibold max-w-full">
+                    <span class="w-2 h-0.5 bg-secondary shrink-0 mt-2 sm:mt-0"></span>
+                    <span class="leading-snug break-mobile">{{ $eyebrow }}</span>
                 </div>
                 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-semibold tracking-tight">{!! $titleHtml !!}</h2>
                 @foreach ($paragraphs as $paragraph)
@@ -48,14 +48,14 @@
                 </div>
             </div>
             <div class="lg:col-span-5 flex flex-col reveal-init delay-200">
-                <div class="p-8 rounded-2xl bg-primary-container text-on-primary shadow-xl relative overflow-hidden border border-outline-variant/20">
+                <div class="p-5 sm:p-8 rounded-2xl bg-primary-container text-on-primary shadow-xl relative overflow-hidden border border-outline-variant/20">
                     <div class="flex items-center justify-between pb-space-sm mb-space-md border-b border-primary/60 flex-wrap gap-2">
-                        <div class="flex items-center gap-2">
-                            <span class="relative flex h-2 w-2">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="relative flex h-2 w-2 shrink-0">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-container opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-secondary-container"></span>
                             </span>
-                            <span class="font-label-caps text-label-caps uppercase text-secondary-container tracking-widest font-semibold">THE MARKET PRINCEPS STANDARD</span>
+                            <span class="font-label-caps text-label-caps uppercase text-secondary-container tracking-wider sm:tracking-widest font-semibold leading-snug">THE MARKET PRINCEPS STANDARD</span>
                         </div>
                         <span class="inline-flex items-center px-space-xs py-0.5 rounded bg-surface-container-high/20 text-secondary-fixed text-label-caps font-label-caps font-semibold status-indicator-glow">OUR PRINCIPLES</span>
                     </div>
